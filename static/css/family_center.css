@@ -1,0 +1,362 @@
+/* 家谱中心页 */
+.search_con{
+	padding-left: 340px;
+	width: 1920px;
+	height: 190px;
+	background-color: white;
+	/*overflow: hidden;*/
+	padding-top: 60px;
+}
+.search{
+	width: 1198px;
+}
+.search a{
+	color: #101010;
+	font-size: 24px;
+	font-weight: normal;
+}
+.search .dropdown{
+	display: inline-block;
+	margin: 5px 20px;
+	width: 114px;
+	height: 58px;
+	float: left;
+}
+.search .dropdown .dropdown-toggle{
+	text-decoration: none;
+	background-color: white;
+	display: inline-block;
+	width: 114px;
+	height: 58px;
+	line-height: 58px;
+	position: relative;
+	text-align: center;
+}
+.search .dropdown .caret{
+	font-size: 20px;
+	position: absolute;
+	top: 21px;
+	right: 0px;
+	margin: 8px 0;
+}
+.search .dropdown .dropdown-menu,
+.search .dropdown .dropdown-menu li,
+.search .dropdown .dropdown-menu li a{
+	min-width: 0px;
+}
+.search .dropdown .dropdown-menu li a{
+	width: 132px;
+	text-align: center;
+}
+
+.search .search_input_con{
+	margin: 10px 0 10px 15px;
+	display: inline-block;
+	height: 46px;
+	width: 998px;
+	border-left: 1px solid #bbb;
+}
+.search .search_input_con .search_input{
+	float: left;
+	color: #222;
+	width: 880px;
+	font-size: 24px;
+	line-height: 46px;
+	border: 0px;
+	margin-left: 25px;
+	text-indent: 24px;
+	outline:none;
+}
+.search .search_input_con .search_img{
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+	float: right;
+	margin-right: 20px;
+	background: url("../images/search.png") no-repeat;
+	background-size: 100%;
+}
+.search{
+	border: 1px solid #5677fc;
+	height: 68px;
+	border-radius: 13px;
+}
+
+.user_head{
+	width: 1200px;
+	height: 60px;
+	line-height: 60px;
+}
+.user_body{
+	margin-top: 11px;
+}
+
+.user_head span, .user_head ul{
+	float: left;
+	margin-left: 20px;
+}
+.user_head ul a:hover{
+	color: #5677FC;
+}
+.user_head a.create_gene{
+	float: right;
+	margin:14px 30px 0 0;
+	width: 100px;
+	height: 30px;
+	color: #5677fc;
+	line-height: 30px;
+	font-size: 18px;
+	border: 1px dashed #5677fc;
+	border-radius: 4px;
+	text-align: center;
+}
+.user_head a.create_gene:hover{
+	text-decoration: none;
+}
+.user_head ul li{
+	display: inline-block;
+	margin-right: 34px;
+}
+.user_head ul li a{
+	color: #101010;
+	text-decoration: none;
+}
+
+.user_head ul li a.current{
+	color: white;
+	padding: 4px 12px;
+	background-color: #5677fc;
+	border-radius: 5px;
+}
+
+
+
+/* 家谱详情页 */
+.description{
+	width: 1200px;
+	margin: 28px 0 0 340px;
+	background-color: white;
+	border: 1px solid #bbb;
+	overflow: hidden;
+}
+.description h1{
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	color: #333;
+	text-align: center;
+}
+.description .book{
+	float: left;
+	width: 163px;
+	height: 223px;
+	margin: 38px 0 38px 30px;
+}
+.description .book_img_con{
+	float: left;
+	width: 163px;
+	height: 300px;
+	margin: 0 0 38px 40px;
+}
+.description .book img{
+	width: 163px;
+	height: 223px;
+}
+.description .book_img{
+	border: 1px dashed #5677fc;
+	border-radius: 5px;
+}
+
+.description .book_img img{
+	margin: auto;
+	width: 163px;
+	height: 233px;
+}
+.description span.upload_img{
+	display: block;
+	overflow: hidden;
+	margin: 30px auto 0;
+	color: #5677fc;
+	/*width:  56px;*/
+	width:  70px;
+	border-bottom: 1px solid #5677fc;
+}
+.description span.upload_img input.file_img{
+	border: none;
+	outline: none;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin-top: -23px;
+	cursor: pointer;
+}
+
+.description .info{
+	float: left;
+	margin: 38px 0 38px 57px;
+}
+.description .info h1{
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	color: #333;
+	text-align: left;
+}
+.description .info p{
+	width: 900px;
+	color: #666;
+	font-size: 14px;
+	margin-top: 12px;
+}
+
+.description .info p.address .create_time{
+	float: right;
+	margin-top: 10px;
+}
+
+.description .book_info{
+	float: left;
+	width: 900px;
+	margin-left: 30px;
+	padding: 20px;
+	/*background-color: gold;*/
+}
+.description .book_info p{
+	margin-bottom: 20px;
+}
+.description .book_info label{
+	float: left;
+	width: 80px;
+	font-weight: normal;
+}
+.description .book_info textarea{
+	width: 750px;
+	height: 100px;
+}
+
+.description .book_info .grant{
+	margin-left: 60px;
+}
+.description .book_info .btn{
+	float: right;
+	margin-right: 60px;
+	width: 80px;
+	height: 30px;
+	color: #5677fc;
+	border: 1px solid #5677fc;
+	padding: 2px 12px;
+}
+
+.description .book_info button.release{
+	background-color: #5677fc;
+	color: #fff;
+}
+
+
+.catalogue_main{
+	margin-left: 320px;
+}
+
+.catalogue_title{
+	float: left;
+	margin: 30px 0 0 20px;
+	width:850px;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #bbb;
+}
+.catalogue_title h1{
+	width: 100%;
+	font-size: 20px;
+	color: #333;
+	text-align: center;
+}
+
+.catalogue_main .right{
+	float: left;
+	margin: 30px 0 0 30px;
+	width: 320px;
+	height: 300px;
+	border: 1px solid #bbb;
+	padding: 10px;
+	background-color: white;
+}
+.catalogue_main .right .author_img{
+	width: 87px;
+	height: 87px;
+	margin: 30px auto 0;
+}
+.catalogue_main .right .author_img img{
+	width: 87px;
+	height: 87px;
+	border-radius: 50%;
+	/*border: 1px solid #bbb;*/
+}
+.catalogue_main .right h1{
+	width: 100%;
+	margin-top: 23px;
+	line-height: 28px;
+	font-size: 18px;
+	color: #101010;
+	text-align: center;
+}
+
+.catalogue_main .right hr{
+	border: 1px solid #bbb;
+	margin-top: 16px;
+}
+.catalogue_main .right p{
+	font-size: 14px;
+	color: #101010;
+	line-height: 23px;
+	width: 270px;
+	margin: 28px auto 0;
+}
+
+
+.family_create{
+	width: 1200px;
+}
+.family_create .catalogue_title{
+	width: 1200px;
+}
+
+
+
+.return_pop_con{
+	display: none;
+}
+.img_dis_pop,.return_pop{
+	width: 300px;
+	height: 200px;
+	border: 1px solid rgba(187, 187, 187, 1);
+	background-color: white;
+	position:fixed;
+	left:50%;
+	top:50%;
+	margin-left:-150px;
+	margin-top:-125px;
+	z-index:9999;
+	text-align: center;
+}
+.return_pop p{
+	margin: 20px;
+	width: 260px;
+	height: 100px;
+	text-indent: 0px;
+	font-size: 18px;
+}
+.return_pop .reset{
+	margin-right: 100px;
+}
+.mask{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	opacity:0.3;
+	filter:alpha(opacity=30);
+	left:0;
+	top:0;
+	z-index:9990;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="root@120.78.188.2:22" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="genealogy">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/genealogy" local="$PROJECT_DIR$" web="http://120.78.188.2:22" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@120.78.188.2:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/genealogy" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

@@ -1,0 +1,80 @@
+/* 文化中心部分 */
+.gene_knowledge h1{
+	width: 100%;
+	margin-top: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	color: #333;
+	text-align: center;
+	border: 0px;
+}
+.gene_knowledge h1 a{
+	float: right;
+	margin-right: 40px;
+	color: #333;
+	font-size: 14px;
+}
+.gene_knowledge ul{
+	margin: 30px;
+}
+.gene_knowledge ul li{
+	display: block;
+	width: 100%;
+	height: 140px;
+	position: relative;
+	margin-top: 40px;
+}
+.gene_knowledge ul li img{
+	width:215px;
+	height: 140px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+}
+.gene_knowledge ul li h2{
+	width: 800px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	text-align: left;
+	color: #333;
+	position: absolute;
+	left: 255px;
+	top: -10px;
+}
+
+.gene_knowledge ul li p{
+	width: 405px;
+	/*height: 80px;*/
+	color: #666;
+	font-size: 14px;
+	line-height: 20px;
+	position: absolute;
+	top:60px;
+	left: 255px;
+	/*单行超出文本省略显示*/
+	/*text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;*/
+    /*多行超出文本省略显示*/
+    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.gene_knowledge ul li p{
+	width: 800px;
+}
+
+/* 家谱知识 */
+.gene_knowledge{
+	float: left;
+	margin-top: 40px;
+	width: 1200px;
+	/*height: 1330px;*/
+	border: 1px solid #bbb;
+	background-color: white;
+}

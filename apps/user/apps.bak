@@ -1,0 +1,3 @@
+class user(Appconfig):
+	name = 'user'
+	verbose_name = '用户管理'

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>王氏家谱-上传文件</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/upload_img.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.cookie.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/upload_img.js' %}"></script>
+	<script src="{%static 'js/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+  	<script>
+	  	tinymce.init({
+	  		language: "zh_CN",
+	  		selector:'textarea',
+			// toolbar: false,
+			// menubar: false,
+			// readonly: 1
+			// inline: true
+	  	});
+  	</script>
+
+</head>
+<body>
+	<div class="top_con">
+		<div class="top_nav">
+			<a href="{% url 'family:index' %}" class="logo">
+				<img src="/static/images/nav_logo.png" alt="导航logo" style="width: 300px; height: 55px;">
+			</a>
+			<a href="{% url 'family:center' %}" class="family current">家谱中心</a>
+			<a href="{% url 'culture:center' %}" class="culture">文化中心</a>
+			<div class="tourist" style="display: none;">
+				<ul>
+					<li><a href="{% url 'user:login' %}">登陆</a></li>
+					<li><a href="{% url 'user:register' %}">注册</a></li>
+				</ul>
+			</div>
+			<div class="user">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0 %}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="return"><span bookid="{{book_id}}">< 返回目录</span></div>
+	
+	<div class="return_pop_con">
+		<div class="return_pop">
+			<h4>
+				<span class="glyphicon glyphicon-exclamation-sign"></span>
+				返回目录
+				<span class="glyphicon glyphicon-remove close"></span>
+			</h4>
+			<p>您未保存已经编辑的内容，返回目录将造成数据丢失，确定返回目录吗？</p>
+			<button class="btn btn-default submit">确定</button>
+			<button class="btn btn-default reset">取消</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+	
+	<div class="con">
+
+		<div class="hidden" articleid="{{article_id}}"></div>
+		<div class="title_con">
+			<input type="text" placeholder="请输入文档标题" name="article_title" id="article_title" value="{{article.name}}" readonly>
+		</div>
+		<div class="main_con" style="height: auto;">
+			<div class="file_top">
+				<h4>编辑谱文</h4>
+				<div class="input_box" style="display: none;">
+					<input type="file" title="请选择文件" class="btn btn-default" id="file" multiple/>点击选择文件</div>
+				<!--<input id="btn" class="btn btn-default" type="submit" value="保存">-->
+				<button class="btn btn-default" id="btn" style="float: right; margin-right: 150px;">保存</button>
+			</div>
+			<div class="file_box">
+					<textarea name="article_content" id="article_content" style="width: 1000px; min-height: 700px; color: #101010;text-align: left;">
+						{% if article %}
+							{{article.content|safe}}
+						{% else %}
+							请开始编辑您的谱文
+						{% endif %}
+					</textarea>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		var storeFlag=true, formFile = new FormData();  //用于向后台传送数据
+		function Data(){
+			if($('#article_title').val() == ''){
+				alert("请填写普文名称");
+				return;
+			}
+			var article_title = $('#article_title').val();
+			formFile.append('article_title', article_title);
+
+			var article_content = tinyMCE.activeEditor.getContent();
+			if (article_content == '' ||  article_content == '<p>请开始编辑您的谱文</p>'){
+				alert('请编辑谱文内容');
+				return false;
+			}
+			// console.log(article_content);
+			formFile.append('article_content', article_content);
+			return true;
+		}
+
+		$(function () {
+			//ajax方法向后台传数据
+			$('#btn').click(function () {
+				article_id = $('.hidden').attr('articleid');
+				console.log(article_id);
+				console.log(storeFlag);
+				if (!storeFlag){
+					alert("谱文已经上传成功，请勿重复保存");
+				} else {
+					if(Data()){
+						$.ajax({
+						url: "/file/upload_file/"+ article_id,
+						type: "post",
+						// async: true,
+						headers:{"X-CSRFToken":$.cookie('csrftoken')},  //这是把csrf传入服务器.
+						data: formFile,
+						contentType: false,  // 告诉jQuery不要去处理发送的数据
+						processData: false,  // 告诉jQuery不要去设置Content-Type请求头
+						dataType: 'json',
+						success: function(data) {
+							if (data.res == 1){
+								formFile = null;
+								formFile = new FormData();
+								alert(data.successmsg);
+								console.log(formFile);
+								storeFlag = true;
+							} else {
+								console.log(errmsg);
+							}
+						},
+						error: function (data) {
+							alert("数据保存失败，请重试");
+						}
+					});
+					}else {
+						storeFlag = true;
+					}
+				}
+			})
+		})
+
+	</script>
+
+
+</body>
+</html>

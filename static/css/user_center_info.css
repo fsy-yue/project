@@ -1,0 +1,278 @@
+.user_head{
+	margin: 40px 0 0 340px;
+	width: 1200px;
+	height: 248px;
+	line-height: 20px;
+	/*text-align: center;*/
+	border: 1px solid rgba(187, 187, 187, 1);
+	background-color: white;
+}
+
+.user_head .user{
+	width: 600px;
+	height: 80px;
+	margin: 62px 0 0 80px;
+	position: relative;
+}
+
+.user_head .user span{
+	display: inline-block;
+}
+
+.user_head .user img,.user_body img{
+	width: 80px;
+	height: 80px;
+	border-radius: 64px;
+}
+
+.user_head .user .name{
+	height: 30px;
+	color: #101010;
+	font-size: 20px;
+	position: absolute;
+	left: 120px;
+	top: 18px;
+} 
+
+.user_head .user .email{
+	height: 23px;
+	color: #101010;
+	font-size: 15px;
+	position: absolute;
+	left: 120px;
+	top: 50px;
+}
+
+ul.nav{
+	margin: 58px 0 0 70px;
+}
+
+.nav li{
+	display: inline-block;
+	height: 30px;
+	margin-right: 50px;
+	font-size: 20px;
+}
+
+.nav li.info a{
+	color: #5677FC;
+	border-bottom: 2px solid #5677FC;
+}
+
+.nav li.gene a{
+	color: #000;
+}
+
+.user_body{
+	margin: 50px 0 0 340px;
+	width: 1200px;
+	height: 1212px;
+	border: 1px solid #bbb;
+	background-color: white;
+}
+
+.user_body div{
+	margin: 30px 0 0 59px;
+}
+
+.user_body h1{
+	height: 20px;
+	text-indent: 20px;
+	font-size: 20px;
+	border-left: 2px solid #5677FC;
+}
+
+.user_body .pic img{
+	margin: 10px 0 0 20px;
+}
+
+.base_info h1{
+	width: 1100px;
+}
+
+.base_info h1 span{
+	float: right;
+	margin-right: 20px;
+	font-size: 14px;
+}
+
+.base_info table{
+	margin: 20px 0 0 20px;
+}
+
+.base_info table td{
+	height: 30px;
+	font-size: 14px;
+	color: #101010;
+}
+
+.form{
+	margin: 30px 0 0 20px;
+}
+
+.form input{
+	display: block;
+	width: 310px;
+	height: 35px;
+	margin-top:20px;
+	text-indent: 40px;
+	color: #bbb;
+	border: 1px solid #bbb;
+	background: url('../images/locking.png') 4px 1px no-repeat;
+	background-size: 10% 85%;
+}
+.user_body .form span{
+	display:none;
+	float: left;
+	color: red;
+	font-size:12px;
+}
+
+#new_email{
+	background: url('../images/email.png') 4px 3px no-repeat;
+	background-size: 10% 75%;
+}
+
+.form .btn{
+	width: 80px;
+	margin: 20px 0 0 40px;
+	border: 1px solid #333;
+	padding: 7px 3px;
+}
+
+.form .submit{
+	display: inline-block;
+	text-indent: 0px;
+	background-color: #5677FC;
+	border:0px;
+	color: white;
+}
+
+
+.change_email p.tip{
+	margin: 30px 0 0 20px;
+	width: 400px;
+	height: 23px;
+	color: #101010;
+}
+
+.change_email p.my_email{
+	margin: 48px 0 0 20px;
+	width: 1100px;
+	color: #101010;
+}
+
+.change_email p.my_email span{
+	float: right;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+
+.info_pop_con{
+	display: none;
+}
+.info_pop{
+	width: 420px;
+	height: 470px;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #bbb;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -200px;
+	z-index: 9999;
+}
+.info_pop .book_img_con{
+	margin-left: 20px;
+}
+.info_pop .book_img_con .book_img{
+	float: left;
+}
+.info_pop .book_img_con .book_img img{
+	width: 80px;
+	height: 80px;
+	border-radius: 64px;
+}
+.info_pop .book_img_con span.upload_img{
+	float: left;
+	margin:30px 0 0 60px;
+	display: block;
+	overflow: hidden;
+	color: #5677fc;
+	width:  68px;
+	border-bottom: 1px solid #5677fc;
+}
+.info_pop .book_img_con span.upload_img input.file_img{
+	border: none;
+	outline: none;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin-top: -23px;
+	cursor: pointer;
+}
+.info_pop .base_info{
+	float: left;
+}
+.info_pop .base_info td{
+	padding: 7px 5px;
+	margin-right: 5px;
+}
+
+.info_pop .base_info input{
+	color: #888;
+}
+.info_pop .base_info textarea{
+	width: 230px;
+	height: 80px;
+	color: #888;
+	text-indent: 28px;
+}
+.info_pop .info_submit{
+	float: left;
+	margin:20px 0 0 20px;
+	width: 330px;
+	height: 50px;
+}
+.info_pop .info_submit .btn{
+	float: right;
+	padding: 2px 12px;
+}
+.info_pop .info_submit .submit{
+	background-color: #5677fc;
+	border: 1px solid #5677fc;
+	color: white;
+}
+.info_pop .info_submit .reset{
+	margin-right: 40px;
+}
+.info_pop .base_info span.sex_char_con{
+	display: inline-block;
+	height: 30px;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #bbb;
+	border-radius: 20px;
+	width: 84px;
+}
+.info_pop .base_info span.sex_char_con span{
+	display: inline-block;
+	width: 40px;
+	height: 28px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 21px;
+	/*color: white;*/
+}
+.info_pop .base_info span.sex_char_con .woman{
+	margin-left: -3px;
+}
+.info_pop .base_info span.sex_char_con .user_sex{
+	background-color: #5677fc;
+	color: white;
+}

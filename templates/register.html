@@ -1,0 +1,84 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>王氏家谱-注册</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main(1).css">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/register.js"></script>
+    <style type="text/css">
+        .register_con{margin-top: 20px;}
+        .r_con{margin-top: 30px;}
+    </style>
+</head>
+<body>
+	<div class="register_con" style="margin-top: 100px;">
+		<div class="logo">
+			<img src="/static/images/login_logo.png" alt="注册登录logo">
+		</div>
+
+		<div class="r_con">
+			<div class="reg_title clearfix">
+				<a href="/user/login" class="login" style="color: #555; font-size: 20px; border-bottom: 0px;">登录</a>
+				<a href="/user/register" class='register' style="color: #5677FC;font-size: 20px; border-bottom: 2px solid #5677FC">注册</a>
+			</div>
+			<div class="reg_form clearfix">
+				<form method="post" id="reg_form">
+					{% csrf_token %}
+					<ul>
+						<li>
+							<div class="input-group">
+							  	<span class="input-group-addon" id="basic-addon1">
+							  		<span href="#" class="glyphicon glyphicon-user"></span>
+							  	</span>
+							 	<input type="text" name="username" id="username" class="form-control" placeholder="请输入用户名" aria-describedby="basic-addon1">
+							</div>
+							<span class="error_tip">提示信息</span>
+						</li>
+						<li>
+							<div class="input-group">
+							  	<span class="input-group-addon" id="basic-addon1">
+							  		<span href="#" class="glyphicon glyphicon-lock"></span>
+							  	</span>
+							 	<input type="password" name="pwd" id="pwd" class="form-control" placeholder="请输入密码" aria-describedby="basic-addon1">
+							</div>
+							<span class="error_tip">提示信息</span>
+						</li>
+						<li>
+							<div class="input-group">
+							  	<span class="input-group-addon" id="basic-addon1">
+							  		<span href="#" class="glyphicon glyphicon-lock"></span>
+							  	</span>
+							 	<input type="password" name="cpwd" id="cpwd" class="form-control" placeholder="请确认密码" aria-describedby="basic-addon1">
+							</div>
+							<span class="error_tip">提示信息</span>
+						</li>
+						<li>
+							<div class="input-group">
+							  	<span class="input-group-addon" id="basic-addon1">
+							  		<span href="#" class="glyphicon glyphicon-envelope" ></span>
+							  	</span>
+							 	<input type="text" name="email" id="email" class="form-control" placeholder="请输入您的邮箱，用于登录或找回密码" aria-describedby="basic-addon1">
+							</div>
+							<span class="error_tip">提示信息</span>
+						</li>
+						<li class="reg_sub">
+							<div class="input-group">
+								<input type="submit" value="注 册" name="">
+							</div>
+							<p style="font-size: 12px; color:#e51c23; text-align: center; margin-top: 15px;">
+								{{errmsg}}
+							</p>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

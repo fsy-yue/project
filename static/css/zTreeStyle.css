@@ -1,0 +1,500 @@
+/*-------------------------------------
+zTree Style
+
+version:	3.5.19
+author:		Hunter.z
+email:		hunter.z@263.net
+website:	http://code.google.com/p/jquerytree/
+
+-------------------------------------*/
+
+.ztree * {padding:0; margin:0; font-size:14px; font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif}
+.ztree {margin:0;color:#333}
+.ztree li{padding:0; margin:0px; list-style:none; line-height:14px; text-align:left; white-space:nowrap; outline:0}
+.ztree li:not(.level0){margin-left: 112px;}
+.ztree li ul{ margin:0; padding:0 0 0 18px}
+.ztree li ul.line{ background:url(./img/line_conn.gif) 0 0 repeat-y;}
+
+.ztree li a {padding:1px 3px 0 0; cursor:pointer; color:#5677fc; background-color: transparent;
+	text-decoration:none; vertical-align:top; display: inline-block;}
+.ztree li a:hover {text-decoration:underline}
+/*.ztree li a.curSelectedNode {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}*/
+/*.ztree li a.curSelectedNode_Edit {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}*/
+.ztree li a.tmpTargetNode_inner {padding-top:0px; background-color:#316AC5; color:white; height:16px; border:1px #316AC5 solid;
+	opacity:0.8; filter:alpha(opacity=80)}
+.ztree li a.tmpTargetNode_prev {}
+.ztree li a.tmpTargetNode_next {}
+.ztree li a input.rename {height:14px; width:80px; padding:0; margin:0;
+	font-size:12px; border:1px #7EC4CC solid; *border:0px}
+.ztree li span {text-align:center;line-height:30px;margin-right:2px; display: inline-block;width: 68px; height: 30px;  border: 1px dotted #5677fc; border-radius: 4px;}
+.ztree li span.button {line-height:0; margin:8px 0; width:16px; height:16px; display: inline-block; vertical-align:middle;
+	border:0 none; cursor: pointer;outline:none;
+	background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+	background-image:url("./img/zTreeStandard.png"); *background-image:url("./img/zTreeStandard.gif")}
+
+.ztree li span.button.chk {width:13px; height:13px; margin:0 3px 0 0; cursor: auto}
+.ztree li span.button.chk.checkbox_false_full {background-position:0 0}
+.ztree li span.button.chk.checkbox_false_full_focus {background-position:0 -14px}
+.ztree li span.button.chk.checkbox_false_part {background-position:0 -28px}
+.ztree li span.button.chk.checkbox_false_part_focus {background-position:0 -42px}
+.ztree li span.button.chk.checkbox_false_disable {background-position:0 -56px}
+.ztree li span.button.chk.checkbox_true_full {background-position:-14px 0}
+.ztree li span.button.chk.checkbox_true_full_focus {background-position:-14px -14px}
+.ztree li span.button.chk.checkbox_true_part {background-position:-14px -28px}
+.ztree li span.button.chk.checkbox_true_part_focus {background-position:-14px -42px}
+.ztree li span.button.chk.checkbox_true_disable {background-position:-14px -56px}
+.ztree li span.button.chk.radio_false_full {background-position:-28px 0}
+.ztree li span.button.chk.radio_false_full_focus {background-position:-28px -14px}
+.ztree li span.button.chk.radio_false_part {background-position:-28px -28px}
+.ztree li span.button.chk.radio_false_part_focus {background-position:-28px -42px}
+.ztree li span.button.chk.radio_false_disable {background-position:-28px -56px}
+.ztree li span.button.chk.radio_true_full {background-position:-42px 0}
+.ztree li span.button.chk.radio_true_full_focus {background-position:-42px -14px}
+.ztree li span.button.chk.radio_true_part {background-position:-42px -28px}
+.ztree li span.button.chk.radio_true_part_focus {background-position:-42px -42px}
+.ztree li span.button.chk.radio_true_disable {background-position:-42px -56px}
+
+.ztree li span.button.switch {width:18px; height:18px}
+.ztree li span.button.root_open{background: url('./img/decrease.png') no-repeat;}
+.ztree li span.button.root_close{background: url('./img/add.png') no-repeat;}
+.ztree li span.button.roots_open{background: url('./img/decrease.png') no-repeat;}
+.ztree li span.button.roots_close{background: url('./img/add.png') no-repeat;}
+.ztree li span.button.center_open{background: url('./img/decrease.png') no-repeat;}
+.ztree li span.button.center_close{background: url('./img/add.png') no-repeat;}
+.ztree li span.button.bottom_open{background: url('./img/decrease.png') no-repeat;}
+.ztree li span.button.bottom_close{background: url('./img/add.png') no-repeat;}
+.ztree li span.button.noline_open{background: url('./img/decrease.png') no-repeat;}
+.ztree li span.button.noline_close{background: url('./img/add.png') no-repeat;}
+.ztree li span.button.root_docu{ background: url('./img/blank.png') no-repeat;}
+.ztree li span.button.roots_docu{background: url('./img/blank.png') no-repeat;}
+.ztree li span.button.center_docu{background: url('./img/blank.png') no-repeat;}
+.ztree li span.button.bottom_docu{background: url('./img/blank.png') no-repeat;}
+.ztree li span.button.noline_docu{ background:none;}
+
+/*.ztree li span.button.ico_open{margin-right:2px; background-position:-110px -16px; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.ico_close{margin-right:2px; background-position:-110px 0; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.ico_docu{margin-right:2px; background-position:-110px -32px; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.edit {margin-right:2px; background-position:-110px -48px; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.remove {margin-right:2px; background-position:-110px -64px; vertical-align:top; *vertical-align:middle}*/
+
+.ztree li span.button.ico_open{display:none;margin-right:2px; background: url('./img/person.png'); vertical-align:top; *vertical-align:middle}
+.ztree li span.button.ico_close{display:none;margin-right:2px; background: url('./img/person.png'); vertical-align:top; *vertical-align:middle}
+.ztree li span.button.ico_docu{display:none;margin-right:2px; background: url('./img/person.png'); vertical-align:top; *vertical-align:middle}
+.ztree li span.button.edit {margin-right:2px; background: url('./img/edit.png');  vertical-align:top; *vertical-align:middle}
+/*.ztree li span.button.person_info {margin-right:2px; background: url('./img/person_info.png');  vertical-align:top; *vertical-align:middle}*/
+
+.ztree li span.button.remove {margin-right:2px; background: url('./img/remove.png');  vertical-align:top; *vertical-align:middle}
+
+.ztree li span.button.ico_loading{margin-right:2px; background:url(./img/loading.gif) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+
+ul.tmpTargetzTree {background-color:#FFE6B0; opacity:0.8; filter:alpha(opacity=80)}
+
+span.tmpzTreeMove_arrow {width:16px; height:16px; display: inline-block; padding:0; margin:2px 0 0 1px; border:0 none; position:absolute;
+	background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+	background-position:-110px -80px; background-image:url("./img/zTreeStandard.png"); *background-image:url("./img/zTreeStandard.gif")}
+
+ul.ztree.zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height:auto;overflow:hidden; background-color:#cfcfcf; border:1px #00B83F dotted; opacity:0.8; filter:alpha(opacity=80)}
+.zTreeMask {z-index:10000; background-color:#cfcfcf; opacity:0.0; filter:alpha(opacity=0); position:absolute}
+
+/* level style*/
+/*.ztree li span.button.level0 {
+	display:none;
+}
+.ztree li ul.level0 {
+	padding:0;
+	background:none;
+}*/
+
+/* 新增按钮样式 */
+.ztree li span.button.add{
+	margin-left: 2px;
+	margin-right: 2px;
+	background: url('./img/add_person.png'); 
+	vertical-align:top;
+	*vertical-align: middle; 
+}
+
+.main_con .img_box{overflow: auto;}
+
+.main_con .img_box::-webkit-scrollbar, .main_con .img_box::-webkit-scrollbar{width: 8px;background-color: rgba(0,0,0,0);} /* 这是针对缺省样式 (必须的) */
+
+.main_con .img_box::-webkit-scrollbar-track, .main_con .img_box::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);border-radius: 5px;background-color: rgba(255,255,255,0.8);} /* 滚动条的滑轨背景颜色 */
+
+.main_con .img_box::-webkit-scrollbar-thumb, .main_con .img_box::-webkit-scrollbar-thumb{border-radius: 5px;-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,.3);background-color: #999;} /* 滑块颜色 */
+
+.main_con .tree_title{
+	/*margin: 30px 100px;*/
+	/*overflow: hidden;*/
+	/*display: table;*/
+    display: flex;
+}
+.main_con .tree_title li{
+	/*display: table-cell;*/
+	flex-shrink: 0;/*默认是1 (经测试iniline-flex的flex-item应该默认是0)*/
+	margin-right: 50px;
+	background-color: #e8eaf6;
+	color: #5677fc;
+	height: 30px;
+	width: 80px;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+
+
+
+
+
+.new-node-layer, .root-node-layer{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -250px;
+	margin-top: -130px;
+	border: 1px solid #bbb;
+	background-color: white;
+	width: 529px;
+	height: 430px;
+}
+.new-node-layer h1, .root-node-layer h1{
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	color: #333;
+	height: 30px;
+	line-height: 30px;
+}
+.new-node-layer .person_info,
+.root-node-layer .person_info{
+	width: 90%;
+	margin: 10px auto 0;
+	font-size: 14px;
+	color: #101010;
+}
+.new-node-layer .person_info p,
+.root-node-layer .person_info p{
+	margin-top: 15px;
+	/*font-family: '楷体';*/
+	/*font-size: 13px;*/
+}
+.new-node-layer .person_info p input,
+.root-node-layer .person_info p input{
+	margin-left: 20px;
+	color: #888;
+	/*font-family: "Microsoft Yahei";*/
+}
+.new-node-layer .person_info p:nth-child(1) span:not(:first-child),
+.root-node-layer .person_info p:nth-child(1) span:not(:first-child){
+	margin-left: 30px;
+}
+.new-node-layer .person_info p:nth-child(1) input,
+.root-node-layer .person_info p:nth-child(1) input{
+	margin-left: 10px;
+	height: 30px;
+	border: 1px solid #bbb;
+	text-indent: 14px;
+}
+.new-node-layer .person_info p:nth-child(1) .lastname,
+.root-node-layer .person_info p:nth-child(1) .lastname{
+	width: 55px;
+}
+.new-node-layer .person_info p:nth-child(1) .firstname,
+.root-node-layer .person_info p:nth-child(1) .firstname{
+	width: 110px;
+}
+.new-node-layer .person_info p:nth-child(1) .othername,
+.root-node-layer .person_info p:nth-child(1) .othername{
+	width: 110px;
+}
+
+.new-node-layer .person_info p:nth-child(2) .seniority,
+.root-node-layer .person_info p:nth-child(2) .seniority{
+	width: 145px;
+	height: 30px;
+	border: 1px solid #bbb;
+	margin-left: 10px;
+	text-indent: 14px;
+}
+
+.new-node-layer .person_info p:nth-child(2) span.sex,
+.root-node-layer .person_info p:nth-child(2) span.sex{
+	margin-left: 115px;
+	display: inline-block;
+	width: 84px;
+	height: 30px;
+	border: 1px solid #bbb;
+	position: relative;
+	border-radius: 20px;
+}
+
+.new-node-layer .person_info p:nth-child(2) span.sex span.sex_input_con,
+.root-node-layer .person_info p:nth-child(2) span.sex span.sex_input_con{
+	position: absolute;
+	top: 5px;
+	left: 0px;
+	display: inline-block;
+	height: 20px;
+	width: 100px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.new-node-layer .person_info p:nth-child(2) span.sex span.sex_input_con input,
+.root-node-layer .person_info p:nth-child(2) span.sex span.sex_input_con input{
+	margin: 0px;
+	padding: 0px;
+	width: 40px;
+	height: 20px;
+	cursor: pointer;
+	opacity: 0;
+}
+.new-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con,
+.root-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con{
+	display: inline-block;
+	height: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.new-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con span,
+.root-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con span{
+	display: inline-block;
+	width: 40px;
+	height: 28px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 20px;
+	color: #888;
+}
+/*.new-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con span.man,*/
+/*.root-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con span.man{*/
+	/*background-color: #5677fc;*/
+/*}*/
+
+.new-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con .person_sex,
+.root-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con .person_sex{
+	background-color: #5677fc;
+	color: white;
+}
+
+.new-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con span.woman,
+.root-node-layer .person_info p:nth-child(2) span.sex span.sex_char_con span.woman{
+	margin-left: -3px;
+	/*color: #888;*/
+}
+
+.new-node-layer .person_info p:nth-child(3) input,
+.root-node-layer .person_info p:nth-child(3) input{
+	width: 145px;
+	height: 30px;
+	margin-left: 15px;
+	text-indent: 14px;
+}
+
+.new-node-layer .person_info p:nth-child(4) input,
+.root-node-layer .person_info p:nth-child(4) input{
+	width: 145px;
+	height: 30px;
+	margin-left: 0px;
+	/*text-indent: 14px;*/
+}
+.new-node-layer .person_info p:nth-child(5) span,
+.root-node-layer .person_info p:nth-child(5) span{
+	float: left;
+	margin-right: 4px;
+}
+.new-node-layer .person_info p:nth-child(5) textarea,
+.root-node-layer .person_info p:nth-child(5) textarea{
+	width: 381px;
+	height: 70px;
+	border: 1px solid #bbb;
+	color: #888;
+	text-indent: 28px;
+}
+
+.new-node-layer div.buttons,
+.root-node-layer div.buttons{
+	margin: 10px 20px;
+	height: 30px;
+}
+
+.new-node-layer div.buttons .btn,
+.root-node-layer div.buttons .btn{
+	height: 34px;
+	margin-right: 20px;
+	padding: 2px 12px;
+
+}
+
+.new-node-layer div.buttons .add_brother, .new-node-layer div.buttons .add_son,
+.root-node-layer div.buttons .add_brother, .new-node-layer div.buttons .add_son{
+	margin-right: 10px;
+	color: #5677fc;
+	border: 1px solid #5677fc;
+	visibility: hidden;
+}
+
+.new-node-layer div.buttons .submit, .new-node-layer div.buttons .reset,
+.root-node-layer div.buttons .submit, .new-node-layer div.buttons .reset{
+	float: right;
+	width: 70px;
+}
+
+.new-node-layer div.buttons .submit,
+.root-node-layer div.buttons .submit{
+	background-color: #5677fc;
+	border: 1px solid #5677fc;
+	color: white;
+}
+.new-node-layer div.buttons .reset,
+.root-node-layer div.buttons .reset{
+	border: 1px solid #3e3c3c;
+	color: #3e3c3c;
+}
+
+.select-layer{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -145px;
+	margin-top: -80px;
+	width: 355px;
+	height: 160px;
+	border: 1px solid #bbb;
+	background-color: white;
+}
+.select-layer h1{
+	width: 100%;
+	margin-top: 15px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 25px;
+	color: #101010;
+	position: relative;
+}
+.select-layer h1 span{
+	position: absolute;
+	top: -2.5px;
+	left: 50%;
+	margin-left: -50px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url('../images/select_person.png') no-repeat;
+	background-size: 100%;
+}
+
+.select-layer p{
+	text-align: center;
+	color: #101010;
+	margin-top: 20px;
+}
+
+.select-layer div.buttons{
+	margin: 25px 20px 0;
+}
+.select-layer div.buttons .btn{
+	height: 30px;
+	font-size: 12px;
+	padding: 2px 12px;
+}
+.select-layer div.buttons button:first-child{
+	border: 1px solid #101010;
+	color: #101010;
+}
+.select-layer div.buttons button:not(:first-child){
+	background-color: #5677fc;
+	border: 1px solid #5677fc;
+	color: white;
+	margin-left: 10px;
+	padding: 3px 11px;
+}
+
+
+.main_con .img_top .search{
+	width: 202px;
+	height: 42px;
+	background-color: #fafafa;
+	border: 1px solid #5677FC;
+	border-radius: 2px;
+	position: absolute;
+	right: 75px;
+	top: 30px;
+}
+.main_con .img_top .search input{
+	float: left;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	width: 160px;
+	height: 40px;
+	background-color: #fafafa;
+	text-indent: 14px;
+	outline: none;
+}
+.main_con .img_top .search .search_icon{
+	float: left;
+	width: 40px;
+	height: 40px;
+	background:url("/static/images/search.png") 4px 4px no-repeat;
+	background-size: 75%;
+}
+
+
+.search_result{
+	display: none;
+	width: 350px;
+	height: auto;
+	border: 1px solid #bbb;
+	position: absolute;
+	top: 174px;
+	right: 0px;
+}
+.search_result .title{
+	position: relative;
+}
+.search_result .title h1{
+	width: 100%;
+	font-size: 20px;
+	text-align: center;
+	color: #333;
+}
+.search_result .title .close{
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 23px;
+	top:-4px;
+	font-size: 24px;
+	background-size: 100%;
+	color: #101010;
+}
+.search_result .person{
+	width: 100%;
+	height: 40px;
+}
+.search_result .person:nth-child(2n+1){
+	background-color: #f2f2f2;
+}
+.search_result .person:nth-child(2n){
+	background-color: #fff;
+}
+.search_result .person .name,.search_result .person .desc{
+	float: left;
+}
+.search_result .person .name{
+	color: #5677fc;
+	font-weight: bold;
+	margin-left: 24px;
+	line-height: 40px;
+	cursor: pointer;
+}
+.search_result .person .desc{
+	color: #666;
+	line-height: 40px;
+	margin-left: 40px;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>王氏家谱-家谱中心</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/upload_img.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/user_center_gene.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/family_center.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<style type="text/css">
+		.caret{
+			margin: 7px 0;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="top_con">
+		<div class="top_nav">
+			<a href="{% url 'family:index' %}" class="logo">
+				<img src="/static/images/nav_logo.png" alt="导航logo" style="width: 300px; height: 55px;">
+			</a>
+			<a href="{% url 'family:center' %}" class="family current" >家谱中心</a>
+			<a href="{% url 'culture:center' %}" class="culture">文化中心</a>
+			{% if user.is_authenticated %}
+			<div class="user">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0 %}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+			{% else %}
+			<div class="tourist" style="float: right;margin-right:80px; ">
+				<ul>
+					<li style="float: left; margin:14px 10px;"><a href="{% url 'user:login' %}">登录</a></li>
+					<li style="float: left;margin:14px 10px;"><a href="{% url 'user:register' %}">注册</a></li>
+				</ul>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="search_con">
+		<div class="search">
+			<span class="dropdown">
+				<a id="drop2" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+				    谱书
+				 	<span class="caret"></span>
+				</a>
+			    <ul class="dropdown-menu" aria-labelledby="drop2">
+					<li><a href="#" name="book" style="width: 132px;">谱书</a></li>
+			        <li><a href="#" name="img" style="width: 132px;">谱书图像</a></li>
+			        <li><a href="#" name="article" style="width: 132px;">谱文</a></li>
+			        <li><a href="#" name="person" style="width: 132px;">世系人物</a></li>
+			    </ul>
+		    </span>
+
+		    <span class="search_input_con">
+				<form action="{% url 'search:book' %}" method="get" id="search_form">
+					<input type="text" name="q" class="search_input" placeholder="请根据左侧分类进行搜索" value="{{query}}">
+					<span class="search_img">
+						<input type="submit" style="opacity: 0; height: 100%; weight: 100%;">
+					</span>
+				</form>
+		    </span>
+		</div>
+	</div>
+
+	<div class="user_head" style="border: 1px solid white;">
+		<span style="font-size: 20px;">共  {{books_total_num}}  条记录：</span>
+	</div>
+
+	<div class="user_body">
+		<div class="book_con">
+			{% for book in imgs_page %}
+				<a {% if book.grant %} class="nosee" {% else %} href="{% url 'family:read' book.id %}" {% endif %}>
+					<div class="book">
+						<img src="{% if book.img %} {{ book.img.url }} {% endif %}" alt="书面封皮" />
+						<div class="info">
+							<h2>{{book.name}} <span {% if book.grant %} class="private" {% endif %}></span></h2>
+							<p>修撰者:&nbsp;<span>{{book.author}}</span></p>
+							<p>地&nbsp;&nbsp;区:&nbsp;<span>{{book.addr}}</span></p>
+						</div>
+					</div>
+				</a>
+			{% empty %}
+			<a href="#">系统暂无相关谱书信息</a>
+			{% endfor %}
+
+		</div>
+		<div class="img_page">
+			<div id="page" class="page_div">
+				{% if imgs_page.has_previous %}
+					<a href="{% url 'family:center'%}?page={{imgs_page.previous_page_number}}" id="prePage"> &lt; </a>
+				{% endif %}
+				{% for pindex in pages %}
+					{% if pindex == imgs_page.number %}
+						<a href="{% url 'family:center'%}?page={{pindex}}" class="current">{{pindex}}</a>
+					{% else %}
+						<a href="{% url 'family:center'%}?page={{pindex}}">{{pindex}}</a>
+					{% endif %}
+				{% endfor %}
+				{% if imgs_page.has_next %}
+					<a href="{% url 'family:center'%}?page={{imgs_page.next_page_number}}" id="nextPage"> &gt; </a>
+				{% endif %}
+				<span>共 {{pages_num}} 页</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="return_pop_con delete_pop_book">
+		<div class="return_pop delete_pop">
+			<p>很抱歉，该谱书的主人将其设为私密，您暂时不可观看其内容</p>
+			<button class="btn btn-default reset" style="color: #fff; background-color: #5677FC; border: 0px;">确定</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+
+	<script type="text/javascript">
+
+		$(function(){
+			$('.search .dropdown-menu li a').click(function(){
+				var text = $(this).text()+'<span class="caret"></span>';
+				$('.search .dropdown-toggle').html(text);
+				var action = 'http://120.78.188.2:8000/search/' + $(this).prop('name');
+				$('form').prop('action', action);
+			})
+			$('#search_form').submit(function () {
+				var action = $('form').prop('action');
+				// alert(action);
+				if (action == 'http://120.78.188.2:8000/search/'){
+					alert("请先选择搜索类型");
+					return false;
+				} else {
+					var search_key = $('.search_input').val();
+					if(search_key == ''){
+						alert("请输入搜索关键字");
+						return false;
+					}
+					return true;
+				}
+			})
+			$('.nosee').click(function () {
+				$('.return_pop_con').fadeIn();
+			})
+			$('button.reset').click(function () {
+				$('.return_pop_con').fadeOut();
+			})
+		})
+	</script>
+
+</body>
+</html>

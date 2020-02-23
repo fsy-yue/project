@@ -1,0 +1,605 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 14 08:52:52 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:43636 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Python main interpreter initialized at 0x118c4d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x118c4d0 pid: 31133 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 31133)
+spawned uWSGI worker 1 (pid: 31135, cores: 2)
+spawned uWSGI worker 2 (pid: 31136, cores: 2)
+spawned uWSGI worker 3 (pid: 31137, cores: 2)
+spawned uWSGI worker 4 (pid: 31138, cores: 2)
+spawned uWSGI http 1 (pid: 31139)
+[pid: 31136|app: 0|req: 1/1] 117.136.88.95 () {40 vars in 878 bytes} [Tue May 14 08:53:14 2019] GET /user/info => generated 5808 bytes in 329 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 31136|app: 0|req: 2/2] 117.136.88.95 () {40 vars in 849 bytes} [Tue May 14 08:53:15 2019] GET /static/css/upload_img.css => generated 99 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31138|app: 0|req: 1/3] 117.136.88.95 () {40 vars in 861 bytes} [Tue May 14 08:53:15 2019] GET /static/css/user_center_info.css => generated 105 bytes in 282 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 31139)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 14 08:54:11 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:38065 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Python main interpreter initialized at 0x206d4d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x206d4d0 pid: 31162 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 31162)
+spawned uWSGI worker 1 (pid: 31164, cores: 2)
+spawned uWSGI worker 2 (pid: 31165, cores: 2)
+spawned uWSGI worker 3 (pid: 31166, cores: 2)
+spawned uWSGI worker 4 (pid: 31167, cores: 2)
+spawned uWSGI http 1 (pid: 31168)
+[pid: 31167|app: 0|req: 1/1] 117.136.88.95 () {40 vars in 877 bytes} [Tue May 14 08:54:13 2019] GET /user/info => generated 5808 bytes in 328 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 31167|app: 0|req: 2/2] 117.136.88.95 () {38 vars in 793 bytes} [Tue May 14 08:54:14 2019] GET /static/css/upload_img.css => generated 99 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31167|app: 0|req: 3/3] 117.136.88.95 () {38 vars in 805 bytes} [Tue May 14 08:54:14 2019] GET /static/css/user_center_info.css => generated 105 bytes in 0 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 1)
+[pid: 31166|app: 0|req: 1/4] 117.136.88.95 () {40 vars in 877 bytes} [Tue May 14 08:54:15 2019] GET /user/info => generated 5808 bytes in 329 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 31167|app: 0|req: 4/5] 117.136.88.95 () {38 vars in 793 bytes} [Tue May 14 08:54:15 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31164|app: 0|req: 1/6] 117.136.88.95 () {38 vars in 805 bytes} [Tue May 14 08:54:15 2019] GET /static/css/user_center_info.css => generated 105 bytes in 283 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 31167|app: 0|req: 5/7] 117.136.88.95 () {40 vars in 877 bytes} [Tue May 14 08:54:40 2019] GET /user/info => generated 5808 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 1)
+[pid: 31166|app: 0|req: 2/8] 117.136.88.95 () {38 vars in 793 bytes} [Tue May 14 08:54:40 2019] GET /static/css/upload_img.css => generated 99 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31167|app: 0|req: 6/9] 117.136.88.95 () {38 vars in 805 bytes} [Tue May 14 08:54:40 2019] GET /static/css/user_center_info.css => generated 105 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 31166|app: 0|req: 3/10] 117.136.88.95 () {40 vars in 877 bytes} [Tue May 14 08:59:00 2019] GET /user/info => generated 5808 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 1)
+[pid: 31164|app: 0|req: 2/11] 117.136.88.95 () {38 vars in 793 bytes} [Tue May 14 08:59:00 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31166|app: 0|req: 4/12] 117.136.88.95 () {38 vars in 805 bytes} [Tue May 14 08:59:00 2019] GET /static/css/user_center_info.css => generated 105 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 31164|app: 0|req: 3/13] 117.136.88.95 () {38 vars in 853 bytes} [Tue May 14 09:06:04 2019] GET /family/index => generated 5321 bytes in 77 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31167|app: 0|req: 7/14] 117.136.88.95 () {40 vars in 900 bytes} [Tue May 14 09:06:16 2019] GET /user/gene => generated 6990 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31167|app: 0|req: 8/15] 117.136.88.95 () {38 vars in 794 bytes} [Tue May 14 09:06:16 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31167|app: 0|req: 9/16] 117.136.88.95 () {40 vars in 897 bytes} [Tue May 14 09:06:23 2019] GET /user/info => generated 5808 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 1)
+[pid: 31164|app: 0|req: 4/17] 117.136.88.95 () {38 vars in 794 bytes} [Tue May 14 09:06:23 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 31165|app: 0|req: 1/18] 117.136.88.95 () {38 vars in 806 bytes} [Tue May 14 09:06:23 2019] GET /static/css/user_center_info.css => generated 105 bytes in 299 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 31168)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 14 09:52:44 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:37388 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Set PythonHome to /root/.virtualenvs/genealogy
+Python main interpreter initialized at 0x22426e0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x22426e0 pid: 31775 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 31775)
+spawned uWSGI worker 1 (pid: 31777, cores: 2)
+spawned uWSGI worker 2 (pid: 31778, cores: 2)
+spawned uWSGI worker 3 (pid: 31779, cores: 2)
+spawned uWSGI worker 4 (pid: 31780, cores: 2)
+spawned uWSGI http 1 (pid: 31781)
+/root/genealogy/utils/mixin.py:67: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <QuerySet [<ImgsDatabase: 子选房乐捐修谱芳名>, <ImgsDatabase: 子俊房乐捐修谱芳名>, <ImgsDatabase: 子杰房乐捐修谱芳名>]>
+  paginator = Paginator(self.objects, self.numbers)
+[pid: 31778|app: 0|req: 1/1] 117.136.88.95 () {38 vars in 859 bytes} [Tue May 14 09:53:06 2019] GET /file/show_img/5 => generated 8572 bytes in 349 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31778|app: 0|req: 2/2] 117.136.88.95 () {38 vars in 800 bytes} [Tue May 14 09:53:06 2019] GET /static/css/upload_img.css => generated 99 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31778|app: 0|req: 3/3] 117.136.88.95 () {40 vars in 950 bytes} [Tue May 14 09:53:59 2019] GET /file/show_img/5?page=1&img_id=343 => generated 8701 bytes in 23 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31778|app: 0|req: 4/4] 117.136.88.95 () {38 vars in 818 bytes} [Tue May 14 09:53:59 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 31778|app: 0|req: 5/5] 117.136.88.95 () {40 vars in 968 bytes} [Tue May 14 09:54:03 2019] GET /file/show_img/5?page=1&img_id=343 => generated 8701 bytes in 22 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31778|app: 0|req: 6/6] 117.136.88.95 () {38 vars in 818 bytes} [Tue May 14 09:54:03 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 31778|app: 0|req: 7/7] 117.136.88.95 () {40 vars in 968 bytes} [Tue May 14 09:54:07 2019] GET /file/show_img/5?page=1&img_id=342 => generated 8747 bytes in 22 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31778|app: 0|req: 8/8] 117.136.88.95 () {38 vars in 818 bytes} [Tue May 14 09:54:07 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 31781)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 14 10:05:39 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:41200 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Set PythonHome to /root/.virtualenvs/genealogy
+Python main interpreter initialized at 0x15c85d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x15c85d0 pid: 31946 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 31946)
+spawned uWSGI worker 1 (pid: 31948, cores: 2)
+spawned uWSGI worker 2 (pid: 31949, cores: 2)
+spawned uWSGI worker 3 (pid: 31950, cores: 2)
+spawned uWSGI worker 4 (pid: 31951, cores: 2)
+spawned uWSGI http 1 (pid: 31952)
+/root/genealogy/utils/mixin.py:20: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <QuerySet [<GeneBook: 三槐王氏宗谱>, <GeneBook: 三槐王氏上梅正道房支谱>, <GeneBook: 三槐王氏上梅正诚房支谱>, <GeneBook: 三槐王氏上梅正忠房支谱>, <GeneBook: 三槐王氏上梅正信房支谱>]>
+  paginator = Paginator(self.objects, self.numbers)
+[pid: 31948|app: 0|req: 1/1] 117.136.88.95 () {42 vars in 939 bytes} [Tue May 14 10:05:46 2019] GET /family/center => generated 6987 bytes in 333 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 2/2] 117.136.88.95 () {40 vars in 907 bytes} [Tue May 14 10:05:47 2019] GET /family/index => generated 5321 bytes in 11 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 3/3] 117.136.88.95 () {40 vars in 908 bytes} [Tue May 14 10:05:50 2019] GET /family/center => generated 6987 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 4/4] 117.136.88.95 () {40 vars in 911 bytes} [Tue May 14 10:05:51 2019] GET /culture/center => generated 3430 bytes in 11 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 5/5] 117.136.88.95 () {42 vars in 942 bytes} [Tue May 14 10:06:09 2019] GET /culture/center => generated 3430 bytes in 10 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 6/6] 117.136.88.95 () {40 vars in 910 bytes} [Tue May 14 10:06:11 2019] GET /family/center => generated 6987 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 7/7] 117.136.88.95 () {40 vars in 907 bytes} [Tue May 14 10:06:12 2019] GET /family/index => generated 5321 bytes in 9 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 8/8] 117.136.88.95 () {40 vars in 908 bytes} [Tue May 14 10:06:14 2019] GET /family/center => generated 6987 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 9/9] 117.136.88.95 () {40 vars in 911 bytes} [Tue May 14 10:06:16 2019] GET /culture/center => generated 3430 bytes in 10 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 10/10] 117.136.88.95 () {40 vars in 908 bytes} [Tue May 14 10:06:19 2019] GET /family/index => generated 5321 bytes in 9 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 11/11] 117.136.88.95 () {40 vars in 908 bytes} [Tue May 14 10:06:23 2019] GET /family/read/2 => generated 4182 bytes in 24 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+/root/genealogy/utils/mixin.py:67: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <QuerySet [<ImgsDatabase: 乐捐修谱芳名>]>
+  paginator = Paginator(self.objects, self.numbers)
+[pid: 31948|app: 0|req: 12/12] 117.136.88.95 () {40 vars in 913 bytes} [Tue May 14 10:06:28 2019] GET /file/show_img/2 => generated 8549 bytes in 19 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 13/13] 117.136.88.95 () {40 vars in 950 bytes} [Tue May 14 10:06:31 2019] GET /file/show_img/2?page=1&img_id=169 => generated 8736 bytes in 27 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 14/14] 117.136.88.95 () {40 vars in 921 bytes} [Tue May 14 10:06:37 2019] GET /user/gene => generated 6990 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 15/15] 117.136.88.95 () {40 vars in 897 bytes} [Tue May 14 10:06:39 2019] GET /user/info => generated 5808 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 16/16] 117.136.88.95 () {42 vars in 928 bytes} [Tue May 14 10:10:37 2019] GET /user/info => generated 5808 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 17/17] 117.136.88.95 () {42 vars in 928 bytes} [Tue May 14 10:10:48 2019] GET /user/info => generated 5808 bytes in 11 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 18/18] 117.136.88.95 () {42 vars in 928 bytes} [Tue May 14 10:13:16 2019] GET /user/info => generated 5808 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 19/19] 117.136.88.95 () {42 vars in 928 bytes} [Tue May 14 10:16:26 2019] GET /user/info => generated 5804 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 1)
+Not Found: /static/css/upload_img.css
+[pid: 31948|app: 0|req: 20/20] 117.136.88.95 () {40 vars in 849 bytes} [Tue May 14 10:16:27 2019] GET /static/css/upload_img.css => generated 2764 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/css/user_center_info.css
+[pid: 31948|app: 0|req: 21/21] 117.136.88.95 () {40 vars in 861 bytes} [Tue May 14 10:16:27 2019] GET /static/css/user_center_info.css => generated 2782 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 31948|app: 0|req: 22/22] 117.136.88.95 () {42 vars in 927 bytes} [Tue May 14 10:16:55 2019] GET /user/info => generated 5804 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+Not Found: /static/css/upload_img.css
+[pid: 31948|app: 0|req: 23/23] 117.136.88.95 () {38 vars in 792 bytes} [Tue May 14 10:16:55 2019] GET /static/css/upload_img.css => generated 2764 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+Not Found: /static/css/user_center_info.css
+[pid: 31948|app: 0|req: 24/24] 117.136.88.95 () {38 vars in 805 bytes} [Tue May 14 10:16:56 2019] GET /static/css/user_center_info.css => generated 2782 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 25/25] 117.136.88.95 () {40 vars in 902 bytes} [Tue May 14 10:17:10 2019] GET /family/index => generated 5321 bytes in 9 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 31948|app: 0|req: 26/26] 117.136.88.95 () {40 vars in 907 bytes} [Tue May 14 10:17:17 2019] GET /family/read/4 => generated 4201 bytes in 20 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Not Found: /static/css/upload_img.css
+[pid: 31948|app: 0|req: 27/27] 117.136.88.95 () {38 vars in 797 bytes} [Tue May 14 10:17:18 2019] GET /static/css/upload_img.css => generated 2764 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+/root/genealogy/utils/mixin.py:20: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <QuerySet [<GeneBook: 三槐王氏宗谱>, <GeneBook: 三槐王氏上梅正道房支谱>, <GeneBook: 三槐王氏上梅正诚房支谱>, <GeneBook: 三槐王氏上梅正忠房支谱>, <GeneBook: 三槐王氏上梅正信房支谱>]>
+  paginator = Paginator(self.objects, self.numbers)
+[pid: 31948|app: 0|req: 28/28] 117.136.88.95 () {40 vars in 908 bytes} [Tue May 14 10:17:26 2019] GET /family/center => generated 6987 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+Not Found: /static/css/upload_img.css
+[pid: 31948|app: 0|req: 29/29] 117.136.88.95 () {38 vars in 797 bytes} [Tue May 14 10:17:26 2019] GET /static/css/upload_img.css => generated 2764 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 31951|app: 0|req: 1/30] 117.136.88.95 () {40 vars in 908 bytes} [Tue May 14 10:17:29 2019] GET /family/read/2 => generated 4182 bytes in 356 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Not Found: /static/css/upload_img.css
+[pid: 31951|app: 0|req: 2/31] 117.136.88.95 () {38 vars in 797 bytes} [Tue May 14 10:17:29 2019] GET /static/css/upload_img.css => generated 2764 bytes in 5 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+/root/genealogy/utils/mixin.py:67: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <QuerySet [<ImgsDatabase: 乐捐修谱芳名>]>
+  paginator = Paginator(self.objects, self.numbers)
+[pid: 31948|app: 0|req: 30/32] 117.136.88.95 () {40 vars in 912 bytes} [Tue May 14 10:17:32 2019] GET /file/show_img/2 => generated 8549 bytes in 19 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Not Found: /static/css/upload_img.css
+[pid: 31948|app: 0|req: 31/33] 117.136.88.95 () {38 vars in 799 bytes} [Tue May 14 10:17:32 2019] GET /static/css/upload_img.css => generated 2764 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 31952)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 21 14:23:42 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Set PythonHome to /root/.virtualenvs/genealogy
+Python main interpreter initialized at 0xad64e0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0xad64e0 pid: 1672 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1672)
+spawned uWSGI worker 1 (pid: 1674, cores: 2)
+spawned uWSGI worker 2 (pid: 1675, cores: 2)
+spawned uWSGI worker 3 (pid: 1676, cores: 2)
+spawned uWSGI worker 4 (pid: 1677, cores: 2)
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 21 14:24:22 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+...brutally killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/genealogy
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8000)
+running /root/.virtualenvs/genealogy/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 21 14:25:55 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 21 14:26:45 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:34273 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Set PythonHome to /root/.virtualenvs/genealogy
+Python main interpreter initialized at 0x25635d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x25635d0 pid: 1717 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1717)
+spawned uWSGI worker 1 (pid: 1719, cores: 2)
+spawned uWSGI worker 2 (pid: 1720, cores: 2)
+spawned uWSGI worker 3 (pid: 1721, cores: 2)
+spawned uWSGI worker 4 (pid: 1722, cores: 2)
+spawned uWSGI http 1 (pid: 1723)
+{'name_third': '家规族训', 'name_second': '修谱教程', 'articles_third': <QuerySet [<CultureArticle: 桃江县首魁公传略>, <CultureArticle: 勘为孝子——记堂侄雪林>, <CultureArticle: 溆浦县王公本用孝德之家五代同堂>, <CultureArticle: 正诚·子远房典范王在湘兄弟姐妹>]>, 'articles_second': <QuerySet [<CultureArticle: 桃江县首魁公传略>, <CultureArticle: 勘为孝子——记堂侄雪林>, <CultureArticle: 溆浦县王公本用孝德之家五代同堂>, <CultureArticle: 正诚·子远房典范王在湘兄弟姐妹>, <CultureArticle: 桃江县王公政举夫人易老孺人五世同堂>, <CultureArticle: 桃江县如此和谐孝德一家人>, <CultureArticle: 桃江县贤惠妇人顺母侍兄二十年>, <CultureArticle: 新化县王氏以贞孝德之家>, <CultureArticle: 新化县王公在定一家孝悌满门的动人事迹>]>, 'books': <QuerySet [<GeneBook:   三槐王氏上梅正信房支谱  >, <GeneBook:    三槐王氏上梅正忠房支谱   >, <GeneBook:   三槐王氏上梅正诚房支谱  >, <GeneBook:  三槐王氏上梅正道房支谱 >]>, 'name_first': '孝德典范', 'articles_first': <QuerySet [<CultureArticle: 桃江县首魁公传略>, <CultureArticle: 勘为孝子——记堂侄雪林>]>}
+[pid: 1722|app: 0|req: 1/1] 211.142.247.137 () {40 vars in 886 bytes} [Tue May 21 14:26:53 2019] GET /family/index => generated 9991 bytes in 355 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 1722|app: 0|req: 2/2] 211.142.247.137 () {42 vars in 845 bytes} [Tue May 21 14:26:54 2019] GET /favicon.ico => generated 85 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+/root/genealogy/utils/mixin.py:20: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <QuerySet [<GeneBook:    三槐王氏宗谱   >, <GeneBook:  三槐王氏上梅正道房支谱 >, <GeneBook:   三槐王氏上梅正诚房支谱  >, <GeneBook:    三槐王氏上梅正忠房支谱   >, <GeneBook:   三槐王氏上梅正信房支谱  >]>
+  paginator = Paginator(self.objects, self.numbers)
+[pid: 1721|app: 0|req: 1/3] 211.142.247.137 () {40 vars in 910 bytes} [Tue May 21 14:26:58 2019] GET /family/center => generated 7905 bytes in 332 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 1722|app: 0|req: 3/4] 211.142.247.137 () {40 vars in 855 bytes} [Tue May 21 14:26:59 2019] GET /static/css/upload_img.css => generated 99 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 1723)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 21 14:40:43 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Set PythonHome to /root/.virtualenvs/genealogy
+Python main interpreter initialized at 0xc414f0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xc414f0 pid: 1848 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1848)
+spawned uWSGI worker 1 (pid: 1850, cores: 2)
+spawned uWSGI worker 2 (pid: 1851, cores: 2)
+spawned uWSGI worker 3 (pid: 1852, cores: 2)
+spawned uWSGI worker 4 (pid: 1853, cores: 2)
+/root/genealogy/utils/mixin.py:20: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <QuerySet [<GeneBook:    三槐王氏宗谱   >, <GeneBook:  三槐王氏上梅正道房支谱 >, <GeneBook:   三槐王氏上梅正诚房支谱  >, <GeneBook:    三槐王氏上梅正忠房支谱   >, <GeneBook:   三槐王氏上梅正信房支谱  >]>
+  paginator = Paginator(self.objects, self.numbers)
+[pid: 1850|app: 0|req: 1/1] 211.142.247.137 () {42 vars in 895 bytes} [Tue May 21 14:40:56 2019] GET /family/center => generated 7905 bytes in 340 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 1850|app: 0|req: 2/2] 211.142.247.137 () {42 vars in 826 bytes} [Tue May 21 14:40:57 2019] GET /favicon.ico => generated 85 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 1850|app: 0|req: 3/3] 211.142.247.137 () {44 vars in 944 bytes} [Tue May 21 14:41:07 2019] GET /family/read/4 => generated 4231 bytes in 25 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+{'name_third': '家规族训', 'articles_third': <QuerySet [<CultureArticle: 桃江县首魁公传略>, <CultureArticle: 勘为孝子——记堂侄雪林>, <CultureArticle: 溆浦县王公本用孝德之家五代同堂>, <CultureArticle: 正诚·子远房典范王在湘兄弟姐妹>]>, 'articles_second': <QuerySet [<CultureArticle: 桃江县首魁公传略>, <CultureArticle: 勘为孝子——记堂侄雪林>, <CultureArticle: 溆浦县王公本用孝德之家五代同堂>, <CultureArticle: 正诚·子远房典范王在湘兄弟姐妹>, <CultureArticle: 桃江县王公政举夫人易老孺人五世同堂>, <CultureArticle: 桃江县如此和谐孝德一家人>, <CultureArticle: 桃江县贤惠妇人顺母侍兄二十年>, <CultureArticle: 新化县王氏以贞孝德之家>, <CultureArticle: 新化县王公在定一家孝悌满门的动人事迹>]>, 'name_second': '修谱教程', 'articles_first': <QuerySet [<CultureArticle: 桃江县首魁公传略>, <CultureArticle: 勘为孝子——记堂侄雪林>]>, 'books': <QuerySet [<GeneBook:   三槐王氏上梅正信房支谱  >, <GeneBook:    三槐王氏上梅正忠房支谱   >, <GeneBook:   三槐王氏上梅正诚房支谱  >, <GeneBook:  三槐王氏上梅正道房支谱 >]>, 'name_first': '孝德典范'}
+[pid: 1850|app: 0|req: 4/4] 211.142.247.137 () {44 vars in 942 bytes} [Tue May 21 14:41:11 2019] GET /family/index => generated 9991 bytes in 30 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 1850|app: 0|req: 5/5] 211.142.247.137 () {44 vars in 945 bytes} [Tue May 21 14:41:19 2019] GET /culture/center => generated 7079 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 1850|app: 0|req: 6/6] 211.142.247.137 () {44 vars in 949 bytes} [Tue May 21 14:41:36 2019] GET /family/create/0 => generated 10518 bytes in 11 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 1850|app: 0|req: 7/7] 211.142.247.137 () {44 vars in 938 bytes} [Tue May 21 14:41:38 2019] GET /user/gene => generated 7519 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 1850|app: 0|req: 8/8] 211.142.247.137 () {44 vars in 949 bytes} [Tue May 21 14:41:41 2019] GET /user/gene?select=1 => generated 4352 bytes in 8 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 1853|app: 0|req: 1/9] 211.142.247.137 () {44 vars in 958 bytes} [Tue May 21 14:41:43 2019] GET /user/gene?select=2 => generated 4352 bytes in 660 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 1853|app: 0|req: 2/10] 211.142.247.137 () {44 vars in 958 bytes} [Tue May 21 14:41:47 2019] GET /user/gene?select=4 => generated 4358 bytes in 9 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[pid: 1850|app: 0|req: 9/11] 211.142.247.137 () {44 vars in 958 bytes} [Tue May 21 14:41:50 2019] GET /user/gene?select=3 => generated 7522 bytes in 11 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/genealogy
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8000)
+running /root/.virtualenvs/genealogy/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 21 14:53:22 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Set PythonHome to /root/.virtualenvs/genealogy
+Python main interpreter initialized at 0xba7010
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xba7010 pid: 1848 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1848)
+spawned uWSGI worker 1 (pid: 2033, cores: 2)
+spawned uWSGI worker 2 (pid: 2034, cores: 2)
+spawned uWSGI worker 3 (pid: 2035, cores: 2)
+spawned uWSGI worker 4 (pid: 2036, cores: 2)
+DAMN ! worker 1 (pid: 2033) died :( trying respawn ...
+Respawned uWSGI worker 1 (new pid: 2046)
+DAMN ! worker 2 (pid: 2034) died :( trying respawn ...
+Respawned uWSGI worker 2 (new pid: 2048)
+DAMN ! worker 3 (pid: 2035) died :( trying respawn ...
+Respawned uWSGI worker 3 (new pid: 2053)
+DAMN ! worker 4 (pid: 2036) died :( trying respawn ...
+Respawned uWSGI worker 4 (new pid: 2055)
+DAMN ! worker 1 (pid: 2046) died :( trying respawn ...
+Respawned uWSGI worker 1 (new pid: 2057)
+DAMN ! worker 2 (pid: 2048) died :( trying respawn ...
+Respawned uWSGI worker 2 (new pid: 2059)
+...brutally killing workers...
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/genealogy
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8000)
+running /root/.virtualenvs/genealogy/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue May 21 14:54:40 2019] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-36) on 09 May 2019 16:32:55
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: iZwz98tug50dd3qkjr3k59Z
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/genealogy
+detected binary path: /root/.virtualenvs/genealogy/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/genealogy
+your processes number limit is 7277
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.5 (default, May  9 2019, 22:00:32)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+Set PythonHome to /root/.virtualenvs/genealogy
+Python main interpreter initialized at 0x2075010
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2075010 pid: 1848 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1848)
+spawned uWSGI worker 1 (pid: 2070, cores: 2)
+spawned uWSGI worker 2 (pid: 2071, cores: 2)
+spawned uWSGI worker 3 (pid: 2072, cores: 2)
+spawned uWSGI worker 4 (pid: 2073, cores: 2)
+Tue May 21 14:56:56 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue May 21 14:56:56 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue May 21 14:56:56 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue May 21 14:56:56 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue May 21 14:56:56 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue May 21 14:56:56 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue May 21 14:56:56 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue May 21 14:56:56 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!

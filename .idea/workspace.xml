@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f793d75e-a657-43fa-954b-c7ab4208ae05" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>img_id == '0'</find>
+      <find>search</find>
+      <find>add_root_per</find>
+      <find>icon</find>
+      <find>image</find>
+      <find>images</find>
+      <find>static</find>
+      <find>name</find>
+      <find>aj</find>
+      <find>ztree</find>
+      <find>category.id</find>
+      <find>查无此人</find>
+      <find>usersex</find>
+      <find>eachFormData</find>
+      <find>DelePicture</find>
+      <find>remove</find>
+      <find>deletep</find>
+      <find>imgName</find>
+      <find>node_id</find>
+      <find>hidden</find>
+      <find>ztree_id</find>
+      <find>ztreeid</find>
+      <find>ztreeObj</find>
+      <find>person_sex</find>
+      <find>sex</find>
+      <find>treeObj</find>
+      <find>delete_pop_title</find>
+      <find>delElem</find>
+      <find>edit</find>
+      <find>visi</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&lt;a href=&quot;{% url 'culture:read' %}&quot;&gt;</replace>
+      <replace>/family/ztree/2</replace>
+      <replace>/family/ztree/1</replace>
+      <replace>show_img'</replace>
+      <replace>null</replace>
+      <replace>ge_</replace>
+      <replace>43.211</replace>
+      <replace />
+      <replace>get_date</replace>
+      <replace>post</replace>
+      <replace>person</replace>
+      <replace>ztree</replace>
+      <replace>192.168.43.211</replace>
+      <replace>AUDIT_STATUS</replace>
+      <replace>sort</replace>
+      <replace>catalogue_main_con</replace>
+      <replace>../images/icon</replace>
+      <replace>catalogue_main</replace>
+      <replace>'family:create' 0</replace>
+      <replace>Img</replace>
+      <replace>/file/upload_ztree</replace>
+      <replace>ztreeNode</replace>
+      <replace>select</replace>
+      <replace>category</replace>
+      <replace>book</replace>
+      <replace>book.id</replace>
+      <replace>.form</replace>
+      <replace>127.0.0.1</replace>
+      <replace>ztre</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/project" />
+  </component>
+  <component name="ProjectId" id="1YDS1yR4TUxNtlWFyf9g4L1pJJZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates/search/indexes" />
+      <recent name="$PROJECT_DIR$/apps/culture" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/apps/culture/migrations" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/static/images" />
+      <recent name="$PROJECT_DIR$/static/css" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.grunt">
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f793d75e-a657-43fa-954b-c7ab4208ae05" name="Default Changelist" comment="" />
+      <created>1555317145061</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555317145061</updated>
+      <workItem from="1555317147337" duration="43017000" />
+      <workItem from="1555463310249" duration="42212000" />
+      <workItem from="1555547876272" duration="42829000" />
+      <workItem from="1555591907530" duration="5023000" />
+      <workItem from="1555636876256" duration="16013000" />
+      <workItem from="1555917790160" duration="20291000" />
+      <workItem from="1555944623538" duration="5979000" />
+      <workItem from="1555988821114" duration="59622000" />
+      <workItem from="1556194197512" duration="1534000" />
+      <workItem from="1556237212549" duration="5752000" />
+      <workItem from="1556243470849" duration="43668000" />
+      <workItem from="1556330369076" duration="39133000" />
+      <workItem from="1556410690716" duration="15127000" />
+      <workItem from="1556505716965" duration="31274000" />
+      <workItem from="1556587649859" duration="3574000" />
+      <workItem from="1556774441438" duration="16596000" />
+      <workItem from="1556996261722" duration="33175000" />
+      <workItem from="1557073589197" duration="8929000" />
+      <workItem from="1557142771096" duration="69030000" />
+      <workItem from="1557277130673" duration="8218000" />
+      <workItem from="1557422155661" duration="5217000" />
+      <workItem from="1557455085908" duration="19675000" />
+      <workItem from="1557496406467" duration="12448000" />
+      <workItem from="1557533691795" duration="290000" />
+      <workItem from="1557534250717" duration="10318000" />
+      <workItem from="1557567120201" duration="3139000" />
+      <workItem from="1557655137949" duration="9185000" />
+      <workItem from="1557709116319" duration="10679000" />
+      <workItem from="1557721710225" duration="37810000" />
+      <workItem from="1557791212241" duration="22256000" />
+      <workItem from="1557880960933" duration="9687000" />
+      <workItem from="1557975190543" duration="6071000" />
+      <workItem from="1558084894435" duration="1326000" />
+      <workItem from="1558190860513" duration="957000" />
+      <workItem from="1558275534302" duration="3967000" />
+      <workItem from="1558352112667" duration="5795000" />
+      <workItem from="1558358190328" duration="1803000" />
+      <workItem from="1558404695288" duration="9040000" />
+      <workItem from="1558419628902" duration="50000" />
+      <workItem from="1558429712968" duration="2164000" />
+      <workItem from="1558459494411" duration="1527000" />
+      <workItem from="1558490088238" duration="1490000" />
+      <workItem from="1558504039037" duration="898000" />
+      <workItem from="1558592725457" duration="7564000" />
+      <workItem from="1558663387815" duration="2146000" />
+      <workItem from="1558666562554" duration="2389000" />
+      <workItem from="1558671414100" duration="317000" />
+      <workItem from="1559009353194" duration="8000" />
+      <workItem from="1559104458429" duration="1123000" />
+      <workItem from="1559115468405" duration="2372000" />
+      <workItem from="1582475468234" duration="48000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

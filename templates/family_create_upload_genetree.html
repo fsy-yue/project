@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/upload_img.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/catalogue.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/zTreeStyle.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.ztree.all.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/gene_ztree_edit.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/upload_img.js' %}"></script>
+   	<title>王氏家谱-世系表编辑</title>
+
+</head>
+<body>
+{% csrf_token %}
+
+	<div class="new_node_layer_con" style="display: none;">
+		<div id="new-node-layer" class="new-node-layer" style="z-index: 9999;">
+			<h1>编辑人物</h1>
+			<div class="person_info">
+				<p>
+					<span><em style="color: red;">*</em>姓<input type="text" name="lastname" class="lastname" id="lastname" placeholder="王" value="王"></span>
+					<span><em style="color: red;">*</em>名<input type="text" name="firstname" class="firstname" id="firstname" placeholder="名"></span>
+					<span>字<input type="text" name="othername" class="othername" id="othername" placeholder="字"></span>
+				</p>
+				<p>
+					<em style="color: red;">*</em>排行
+					<select name="seniority" id="seniority" class="seniority">
+						<option selected="selected" style='display: none' value=''>请选排行</option>
+						<option value="1">独生子</option>
+						<option value="2">独生女</option>
+						<option value="3">第1</option>
+						<option value="4">第2</option>
+						<option value="5">第3</option>
+						<option value="6">第4</option>
+						<option value="7">第5</option>
+						<option value="8">第6</option>
+						<option value="9">第7</option>
+						<option value="10">第8</option>
+						<option value="11">第9</option>
+						<option value="12">第10</option>
+						<option value="13">第11</option>
+						<option value="14">第12</option>
+					</select>
+
+					<span id="sex" class="sex">
+						<span class='sex_input_con'>
+							<input type="radio" name="sex" class="man" id="man" value='0' checked="checked">
+							<input type="radio" name="sex" class="woman" id="woman" value='1' >
+						</span>
+						<span class="sex_char_con">
+							<span class="man person_sex">男</span>
+							<span class="woman">女</span>
+						</span>
+					</span>
+				</p>
+
+				<p>
+					配偶<input type="text" name="spouse" class="spouse" id="spouse" placeholder="配偶">
+				</p>
+				<p>
+					出生日期 <input type="date" name="birthday"  class="birthday"  id="birthday">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					卒世日期 <input type="date" name="deathday" class="deathday"  id="deathday">
+				</p>
+				<p>
+					<span>生平简介</span> <textarea name="desc" class="desc" id="desc">生平简介</textarea>
+				</p>
+			</div>
+			<hr style="border: 1px solid #ccc;">
+			<div class="buttons">
+				<button type="button" class="btn btn-default add_brother"  style="visibility: hidden;">添加兄弟姐妹</button>
+				<button type="button" class="btn btn-default add_son" style="visibility: hidden;">添加子女</button>
+				<button type="button" class="btn btn-default submit"  onclick="submitNewNode()">保存</button>
+				<button type="button" class="btn btn-default reset" onclick="hideForm()">取消</button>
+			</div>
+		</div>
+		<div class="mask"></div>
+	</div>
+
+	<div class="root_node_layer_con" style="display: none;">
+		<div id="root-node-layer" class="root-node-layer" style=" z-index: 9999;">
+			<h1>编辑人物</h1>
+			<div class="person_info">
+				<p>
+					<span><em style="color: red;">*</em>姓<input type="text" name="lastname" class="lastname" id="rootlastname" placeholder="王" value="王"></span>
+					<span><em style="color: red;">*</em>名<input type="text" name="firstname" class="firstname" id="rootfirstname" placeholder="名"></span>
+					<span>字<input type="text" name="othername" class="othername" id="rootothername" placeholder="字"></span>
+				</p>
+				<p>
+					<em style="color: red;">*</em>排行
+					<select name="seniority" id="rootseniority" class="seniority">
+						<option selected="selected" style='display: none' value=''>请选排行</option>
+						<option value="1">独生子</option>
+						<option value="2">独生女</option>
+						<option value="3">第1</option>
+						<option value="4">第2</option>
+						<option value="5">第3</option>
+						<option value="6">第4</option>
+						<option value="7">第5</option>
+						<option value="8">第6</option>
+						<option value="9">第7</option>
+						<option value="10">第8</option>
+						<option value="11">第9</option>
+						<option value="12">第10</option>
+						<option value="13">第11</option>
+						<option value="14">第12</option>
+					</select>
+
+
+					<span id="rootsex" class="sex">
+						<span class='sex_input_con'>
+							<input type="radio" name="sex" class="man" id="rootman" value='0' checked="checked">
+							<input type="radio" name="sex" class="woman" id="rootwoman" value='1'>
+						</span>
+						<span class="sex_char_con">
+							<span class="man person_sex">男</span>
+							<span class="woman">女</span>
+						</span>
+					</span>
+				</p>
+
+				<p>
+					配偶<input type="text" name="spouse" class="spouse" id="rootspouse" placeholder="配偶">
+				</p>
+				<p>
+					出生日期 <input type="date" name="birthday"  class="birthday"  id="rootbirthday" >
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					卒世日期 <input type="date" name="deathday" class="deathday"  id="rootdeathday">
+				</p>
+				<p>
+					<span>生平简介</span> <textarea name="desc" class="desc" id="rootdesc"></textarea>
+				</p>
+			</div>
+			<hr style="border: 1px solid #ccc;">
+			<div class="buttons">
+				<button type="button" class="btn btn-default add_brother" style="visibility: hidden;">添加兄弟姐妹</button>
+				<button type="button" class="btn btn-default add_son" style="visibility: hidden;">添加子女</button>
+				<button type="button" class="btn btn-default submit"  onclick="submitRootNode()">保存</button>
+				<button type="button" class="btn btn-default reset" onclick="hideRootForm()">取消</button>
+			</div>
+		</div>
+		<div class="mask"></div>
+	</div>
+
+	<div class="select_layer_con" style="display: none;">
+		<div class="select-layer" id="select-layer" style=" z-index: 9999;">
+			<h1><span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;添加人物</h1>
+			<p>请选择添加人物类型</p>
+			<div class="buttons">
+				<button type="button" class="btn btn-default reset" onclick="hideSelectForm()">取消</button>
+				<button type="button" class="btn btn-default add_brother" onclick="submitSelect('brother')">添加兄弟姐妹</button>
+				<button type="button" class="btn btn-default add_son" onclick="submitSelect('son')">添加子女</button>
+			</div>
+		</div>
+		<div class="mask"></div>
+	</div>
+	<div class="return_pop_con delete_pop_title">
+		<div class="return_pop delete_pop" style="height: 210px;">
+			<h4>
+				<span></span>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除人物节点
+			</h4>
+			<p>确认删除此人物及其子孙节点吗？</p>
+			<button class="btn btn-default delete">删除</button>
+			<button class="btn btn-default reset">取消</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+
+	<div class="top_con">
+		<div class="top_nav">
+			<a href="{% url 'family:index' %}" class="logo">
+				<img src="/static/images/nav_logo.png" alt="导航logo" style="width: 300px; height: 55px;">
+			</a>
+			<a href="{% url 'family:center' %}" class="family current">家谱中心</a>
+			<a href="{% url 'culture:center' %}" class="culture">文化中心</a>
+			<div class="user">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0 %}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="return"><span bookid="{{book_id}}">< 返回目录</span></div>
+
+	<div class="return_pop_con">
+		<div class="return_pop">
+			<h4>
+				<span class="glyphicon glyphicon-exclamation-sign"></span>
+				返回目录
+				<span class="glyphicon glyphicon-remove close"></span>
+			</h4>
+			<p>您未保存已经编辑的内容，返回目录将造成数据丢失，确定返回目录吗？</p>
+			<button class="btn btn-default submit">确定</button>
+			<button class="btn btn-default reset">取消</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+
+	<div class="con">
+		<div class="hidden" style="display: none;">{{ztree_id}}</div>
+		<div class="title_con">
+			<input type="text" id="article_title" placeholder="请输入世系表名" value="{% if ztree %} {{ztree.name}} {% endif %}" readonly>
+		</div>
+		<div class="main_con">
+			<div class="img_top">
+				<h4>编辑世系</h4>
+				<button class="btn btn-default" id="btn" style="float: right; margin-right: 150px;">保存</button>
+			</div>
+			<div class="img_box" style="border: 1px solid #101010; margin: 100px auto;">
+				<ul class="tree_title">
+					<li><span>第1世</span></li>
+					<li><span>第2世</span></li>
+					<li><span>第3世</span></li>
+					<li><span>第4世</span></li>
+					<li><span>第5世</span></li>
+					<li><span>第6世</span></li>
+					<li><span>第7世</span></li>
+					<li><span>第8世</span></li>
+					<li><span>第9世</span></li>
+					<li><span>第10世</span></li>
+					<li><span>第11世</span></li>
+					<li><span>第12世</span></li>
+					<li><span>第13世</span></li>
+					<li><span>第14世</span></li>
+					<li><span>第15世</span></li>
+					<li><span>第16世</span></li>
+					<li><span>第17世</span></li>
+					<li><span>第18世</span></li>
+					<li><span>第19世</span></li>
+					<li><span>第20世</span></li>
+					<li><span>第21世</span></li>
+					<li><span>第22世</span></li>
+					<li><span>第23世</span></li>
+					<li><span>第24世</span></li>
+					<li><span>第25世</span></li>
+					<li><span>第26世</span></li>
+					<li><span>第27世</span></li>
+					<li><span>第28世</span></li>
+					<li><span>第29世</span></li>
+					<li><span>第30世</span></li>
+					<li><span>第31世</span></li>
+					<li><span>第32世</span></li>
+					<li><span>第33世</span></li>
+					<li><span>第34世</span></li>
+					<li><span>第35世</span></li>
+					<li><span>第36世</span></li>
+					<li><span>第37世</span></li>
+					<li><span>第38世</span></li>
+					<li><span>第39世</span></li>
+					<li><span>第40世</span></li>
+					<li><span>第41世</span></li>
+					<li><span>第42世</span></li>
+					<li><span>第43世</span></li>
+					<li><span>第44世</span></li>
+					<li><span>第45世</span></li>
+					<li><span>第46世</span></li>
+					<li><span>第47世</span></li>
+					<li><span>第48世</span></li>
+					<li><span>第49世</span></li>
+					<li><span>第50世</span></li>
+					<li><span>第51世</span></li>
+					<li><span>第52世</span></li>
+					<li><span>第53世</span></li>
+					<li><span>第54世</span></li>
+					<li><span>第55世</span></li>
+					<li><span>第56世</span></li>
+					<li><span>第57世</span></li>
+					<li><span>第58世</span></li>
+					<li><span>第59世</span></li>
+					<li><span>第60世</span></li>
+					<li><span>第61世</span></li>
+					<li><span>第62世</span></li>
+					<li><span>第63世</span></li>
+					<li><span>第64世</span></li>
+					<li><span>第65世</span></li>
+					<li><span>第66世</span></li>
+					<li><span>第67世</span></li>
+					<li><span>第68世</span></li>
+					<li><span>第69世</span></li>
+					<li><span>第70世</span></li>
+					<li><span>第71世</span></li>
+					<li><span>第72世</span></li>
+					<li><span>第73世</span></li>
+					<li><span>第74世</span></li>
+					<li><span>第75世</span></li>
+					<li><span>第76世</span></li>
+					<li><span>第77世</span></li>
+					<li><span>第78世</span></li>
+					<li><span>第79世</span></li>
+					<li><span>第80世</span></li>
+					<li><span>第81世</span></li>
+					<li><span>第82世</span></li>
+					<li><span>第83世</span></li>
+					<li><span>第84世</span></li>
+					<li><span>第85世</span></li>
+					<li><span>第86世</span></li>
+					<li><span>第87世</span></li>
+					<li><span>第88世</span></li>
+					<li><span>第89世</span></li>
+					<li><span>第90世</span></li>
+					<li><span>第91世</span></li>
+					<li><span>第92世</span></li>
+					<li><span>第93世</span></li>
+					<li><span>第94世</span></li>
+					<li><span>第95世</span></li>
+					<li><span>第96世</span></li>
+					<li><span>第97世</span></li>
+					<li><span>第98世</span></li>
+					<li><span>第99世</span></li>
+					<li><span>第100世</span></li>
+				</ul>
+				<div>
+					<button class="btn btn-default add_root_person" style="float:left; background-color: #5677FC; color: #fff;display: none;">上传根人物</button>
+					<ul id="treeDemo" class="ztree" style="display: none;"></ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

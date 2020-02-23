@@ -1,0 +1,109 @@
+.body{
+	margin:20px 0 0 340px;
+	width: 1200px;
+	/*height: 1200px;*/
+	background-color: #f2f2f2;
+	/*background-color: yellowgreen;*/
+	overflow: hidden;
+}
+
+.body .article{
+	float: left;
+	width: 830px;
+	/*height: 1200px;*/
+	margin: 30px 20px 0 0;
+	padding: 20px;
+	background-color: white;
+}
+.body .article h1{
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	font-size: 24px;
+	color: #333;
+	text-align: left;
+}
+.body .article h2{
+    height: 20px;
+}
+.body .article h2 span{
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #333;
+}
+
+.body .article h2 .author{
+    float: left;
+    margin-left: 10px;
+}
+.body .article h2 .time{
+	float: right;
+	margin-right: 10px;
+}
+
+.body .article .article_tip{
+	width: 784px;
+	margin-top: 25px;
+	padding: 10px 20px;
+	font-size: 14px;
+	line-height: 28px;
+	background-color: #f0f2f5;
+	border-left: 3px solid #5677fc;
+}
+
+.body .article .article_con{
+	margin-top: 14px;
+}
+.body .article .article_con p{
+	font-size: 14px;	
+	line-height: 28px;
+	text-indent: 28px;
+	color: #333;
+}
+
+/* 右侧热门文章列表 */
+.body .right_article{
+	float: left;
+	margin-top: 30px;
+	padding-bottom: 20px;
+	width: 310px;
+	/*height: 640px;*/
+	background-color: white;
+}
+.body .right_article h1{
+	width: 100%;
+	height: 30px;
+	margin-top: 20px;
+	text-align: center;
+	color: #333;
+	line-height: 30px;
+	font-size: 20px;
+}
+.body .right_article .hot_article{
+	margin: 20px;
+}
+.body .right_article .hot_article li{
+	float: left;
+	margin-top: 10px;
+}
+.body .right_article .hot_article img{
+	float: left;
+	width: 114px;
+	height: 74px;
+}
+.body .right_article .hot_article h2{
+	float: left;
+	margin-left: 20px;
+	width: 120px;
+	height: 50px;
+	font-size: 17px;
+	line-height: 25px;
+	color: #333;
+	/*单行超出文本省略显示*/
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>王氏家谱-家谱编辑页</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/upload_img.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/family_center.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/catalogue.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/catalogue.js' %}"></script>
+<body>
+	
+	<div class="top_con">
+		<div class="top_nav">
+			<a href="{% url 'family:index' %}" class="logo">
+				<img src="/static/images/nav_logo.png" alt="导航logo" style="width: 300px; height: 55px;">
+			</a>
+			<a href="{% url 'family:center' %}" class="family current">家谱中心</a>
+			<a href="{% url 'culture:center' %}" class="culture">文化中心</a>
+			<div class="user">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0 %}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="breadcrumb return">
+		<a href="{% url 'family:index' %}"> 王氏家谱查询与管理系统 </a>
+		<span>></span>
+		<a href="{% url 'family:center' %}"> 家谱中心 </a>
+		<span>></span>
+		<a href="{% url 'family:create' 0  %}"> 创建家谱 </a>
+	</div>
+
+	<div class="description">
+		<h1>编辑家谱</h1>
+		<div class="book_img_con">
+			<div class="book_img">
+				{% if book %}
+				<img src="{% if book.img %} {{ book.img.url }} {% else %} {% static 'images/up_book_img.png' %} {% endif %}" alt="家谱封面">
+				{% else %}
+				<img src="{% static 'images/up_book_img.png' %} " alt="家谱封面">
+				{% endif %}
+			</div>
+			<span class="upload_img" id="upload_img" >上传封面
+				<input type="file" class="file_img" onchange="previewFile()">
+			</span>
+		</div>
+		<div class="book_info">
+			<p>
+				<label>家谱名</label>
+				<input type="text" name="bookname" id="bookname" style="width: 300px;" value="{% if book %} {{book.name}} {% endif %}"/>
+			</p>
+			<p>
+				<label>修撰者</label>
+				<input type="text" name="authorname" id="authorname" style="width: 100px;" value="{% if book %} {{book.author}} {% endif %}"/>
+			</p>
+			<p>
+				<label>家谱介绍</label>
+				<textarea name="bookdesc" id="bookdesc" >{% if book %} {{book.desc}} {% endif %}</textarea>
+			</p>
+			<p>
+				<label>地区</label>
+				<div class="province" id="province" style="display:none;">{% if book %} {{book.province}} {% endif %}</div>
+				<div class="city" id="city" style="display:none;">{% if book %} {{book.city}} {% endif %}</div>
+				<div class="area" id="area" style="display:none;">{% if book %} {{book.district}} {% endif %}</div>
+				<form class="form-inline address">
+				  	<div data-toggle="distpicker">
+						<div class="form-group">
+					  		<label class="sr-only" for="cmbProvince">cmbProvince</label>
+							<select class="form-control" id="cmbProvince" name="cmbProvince"></select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="cmbCity">cmbCity</label>
+							<select class="form-control" id="cmbCity" name="cmbCity"></select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="district1">cmbArea</label>
+							<select class="form-control" id="cmbArea" name="cmbArea"></select>
+						</div>
+					</div>
+				</form>
+			</p>
+			<p>
+				<label>权限</label>
+				<input class="grant" type="radio" name="grant" value="0" {% if book %} {% if book.grant %} {% else %} checked="checked" {% endif %} {% else %}checked="checked" {% endif %}/> 公开
+				<input class="grant" type="radio" name="grant" value="1" {% if book %} {% if book.grant %} checked="checked"{% endif %} {% endif %}/> 私密
+			</p>
+			<p>
+				<button class="btn btn-default release">发布</button>
+				<button class="btn btn-default store">保存</button>
+			</p>
+		</div>
+		<div class="hidden" style="display: none;">{% if book %} {{book.id}} {% endif %}</div>
+	</div>
+	
+	<div class="catalogue_main family_create">
+		<div class="catalogue_title">
+			<h1>家谱目录</h1>
+			<ul class="catalogue_con">
+				<li class="img li_1" type="img">
+					<span class="back"></span>
+					<span class="title">图像</span>
+					<span class="{% if book %} drop_up {% else %}  drop_down {% endif %}"></span>
+					<span class="add_cata"></span>
+					<span class="add_title"></span>
+				</li>
+				<div class="div_1">
+					{% if book %}
+						{% if book.imgdb_title %}
+							{% for imgdb in book.imgdb_title %}
+								<ul class="title_level title_level_1">
+									<li type="img">
+										<a href="{% url 'file:upload_img' imgdb.id %}" bookid="{{imgdb.id}}">
+											<span class="article_title" >{{imgdb.name}}</span>
+										</a>
+										<span class="article_edit"></span>
+										<span class="article_delete"></span>
+									</li>
+								</ul>
+							{% endfor %}
+						{% endif %}
+						{% if book.img_cata %}
+							{% for catalogue in book.img_cata %}
+								<ul class="cata_level">
+									<li type="img">
+										<span class="cata_drop_up" asyncid="1"></span>
+										<span class="cata_title" bookid="{{catalogue.id}}">{{catalogue.name}}</span>
+										<span class="cata_edit"></span>
+										<span class="cata_delete"></span>
+										<span class="cata_add_title"></span>
+									</li>
+									<div class="div_2"></div>
+								</ul>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				</div>
+
+				<li class="article li_1" type="article">
+					<span class="back"></span>
+					<span class="title">谱文</span>
+					<span class="{% if book %} drop_up {% else %}  drop_down {% endif %}"></span>
+					<span class="add_cata"></span>
+					<span class="add_title"></span>
+				</li>
+				<div class="div_1">
+					{% if book %}
+						{% if book.article_title %}
+							{% for article in book.article_title %}
+								<ul class="title_level title_level_1">
+									<li type="article">
+										<a href="{% url 'file:upload_file' article.id %}" bookid="{{article.id}}">
+											<span class="article_title" >{{article.name}}</span>
+										</a>
+										<span class="article_edit"></span>
+										<span class="article_delete"></span>
+									</li>
+								</ul>
+							{% endfor %}
+						{% endif %}
+						{% if book.article_cata %}
+							{% for catalogue in book.article_cata %}
+								<ul class="cata_level">
+									<li type="article">
+										<span class="cata_drop_up" asyncid="1"></span>
+										<span class="cata_title" bookid="{{catalogue.id}}">{{catalogue.name}}</span>
+										<span class="cata_edit"></span>
+										<span class="cata_delete"></span>
+										<span class="cata_add_title"></span>
+									</li>
+									<div class="div_2"></div>
+								</ul>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				</div>
+
+				<li class="pedigree li_1" type="ztree">
+					<span class="back"></span>
+					<span class="title">世系</span>
+					<span class="{% if book %} drop_up {% else %}  drop_down {% endif %}"></span>
+					<span class="add_cata"></span>
+					<span class="add_title"></span>
+				</li>
+				<div class="div_1">
+					{% if book %}
+						{% if book.ztree_title %}
+							{% for ztree in book.ztree_title %}
+								<ul class="title_level title_level_1">
+									<li type="ztree">
+										<a href="{% url 'file:upload_ztree' ztree.id%}" bookid="{{ztree.id}}">
+											<span class="article_title" >{{ztree.name}}</span>
+										</a>
+										<span class="article_edit"></span>
+										<span class="article_delete"></span>
+									</li>
+								</ul>
+							{% endfor %}
+						{% endif %}
+						{% if book.ztree_cata %}
+							{% for catalogue in book.ztree_cata %}
+								<ul class="cata_level">
+									<li type="ztree">
+										<span class="cata_drop_up" asyncid="1"></span>
+										<span class="cata_title" bookid="{{catalogue.id}}">{{catalogue.name}}</span>
+										<span class="cata_edit"></span>
+										<span class="cata_delete"></span>
+										<span class="cata_add_title"></span>
+									</li>
+									<div class="div_2"></div>
+								</ul>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				</div>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="return_pop_con delete_pop_cata">
+		<div class="return_pop delete_pop">
+			<h4>
+				<span></span>
+				删除目录
+			</h4>
+			<p>确认删除此目录及其包含的文档吗？</p>
+			<button class="btn btn-default delete">删除</button>
+			<button class="btn btn-default reset">取消</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+	<div class="return_pop_con delete_pop_title">
+		<div class="return_pop delete_pop">
+			<h4>
+				<span></span>
+				删除文档
+			</h4>
+			<p>确认删除此文档吗？</p>
+			<button class="btn btn-default delete">删除</button>
+			<button class="btn btn-default reset">取消</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+	<div class="return_pop_con input_pop">
+		<div class="return_pop">
+			<h4>
+				<span class=""></span>
+				标题录入
+			</h4>
+			<p>
+				<input type="text" class="title" name="title" placeholder="请输入标题">
+			</p>
+			<button class="btn btn-default submit">确定</button>
+			<button class="btn btn-default reset">取消</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+	<div class="return_pop_con title_edit_con">
+		<div class="return_pop title_edit">
+			<h4>
+				<span></span>
+				标题修改
+			</h4>
+			<p>
+				<input type="text" class="title" name="title" placeholder="请输入新标题">
+			</p>
+			<button class="btn btn-default submit">确定</button>
+			<button class="btn btn-default reset">取消</button>
+		</div>
+		<div class="mask"></div>
+	</div>
+
+
+	<script type="text/javascript" src="{% static 'js/address.js' %}"></script>
+	<script type="text/javascript">
+		addressInit('cmbProvince', 'cmbCity', 'cmbArea');
+		function previewFile(){
+		  	var preview = document.querySelector('.book_img img');
+		  	var file = document.querySelector('input[type=file]').files[0];
+		  	if (!/image\/\w+/.test(file.type)) {
+				alert("请确保文件为图像类型");
+				return false;
+			}
+		  	var reader = new FileReader();//创建一个FileReader实例
+		　　 reader.readAsDataURL(file);//将文件内容进行base64编码后输出
+		　　 reader.onload = function(e) {
+		　　　　 //console.log(this.result);//读取完成后，数据保存在对象的result属性中
+　　　　　　　　　preview.src = reader.result;
+　　　　　　　　　formData.append('file',file);
+　　　　　　　　　formData.append('filename',file.name);
+　　　　　　　　　console.log(formData.getAll('file'));
+　　　　　　  }
+		}
+
+		function getBookInfo(select_id){
+			var bookname = $("#bookname").val();
+			var bookdesc = $('#bookdesc').val();
+			var province = $('#cmbProvince').val();
+			var city = $("#cmbCity").val();
+			var district = $("#cmbArea").val();
+			var authorname = $('#authorname').val();
+			var address = province +' '+ city +' '+ district;
+			var grant = $("input[type=radio]:checked").val();
+			if(bookname == ''){
+				alert("请填写家谱名称");
+				return;
+			}
+			if(authorname == ''){
+				alert("请填写家谱修撰者姓名");
+				return;
+			}
+			if(bookdesc == ''){
+				alert("请填写家谱介绍");
+				return;
+			}
+			formData.append('bookname', bookname);
+			formData.append('bookdesc', bookdesc);
+			formData.append('province', province);
+			formData.append('city', city);
+			formData.append('district', district);
+			formData.append('author', authorname);
+			formData.append('address', address);
+			formData.append('grant', grant);
+			formData.append('audit_select', select_id);
+			formData.append('operate', 'save');
+			return true;
+		}
+
+		var formData = new FormData(), book_id;
+		$(function(){
+			book_id = $('.hidden').text();
+			console.log(book_id);
+			if (!book_id){
+				book_id = 0
+			}else{
+				book_id = parseInt(book_id);
+			}
+			$('.release').click(function () {
+				if(getBookInfo(2)){
+					$.ajax({
+						url :"/family/create/"+book_id ,
+						type : 'post',
+						dataType:"json",
+						data:formData,
+						cache: false,
+						processData : false,// 告诉jQuery不要去处理发送的数据
+						contentType : false,// 告诉jQuery不要去设置Content-Type请求头
+						success : function(data, status, xhr) {
+							if(data.res == 1){
+								storeFlag = true;
+								console.log(data.new_book_id);
+								$('.hidden').text( data.new_book_id);
+								book_id = data.new_book_id;
+								formData = new FormData();
+								alert("您已提交成功，请到您的私人谱书中查看审核状态");
+							}else {
+								alert("数据提交失败，请重试");
+							}
+						},
+						error : function(xhr, errorType, error) {
+							formData = new FormData();
+							alert("数据提交失败，请重试");
+						}
+					})
+				}
+			});
+			$('.store').click(function () {
+				if(getBookInfo(1)){
+					$.ajax({
+						url :"/family/create/"+book_id,
+						type : 'post',
+						dataType:"json",
+						data:formData,
+						cache: false,
+						processData : false,// 告诉jQuery不要去处理发送的数据
+						contentType : false,// 告诉jQuery不要去设置Content-Type请求头
+						success : function(data, status, xhr) {
+							storeFlag = true;
+							console.log(data.new_book_id);
+							book_id = data.new_book_id;
+							// book_id = data.new_book_id;
+							formData = new FormData();
+							$('.hidden').text( data.new_book_id);
+							alert("您已保存成功，请到您的私人谱书中查看");
+						},
+						error : function(xhr, errorType, error) {
+							formData = new FormData();
+							alert("数据保存失败，请重试");
+						}
+					})
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+.preview{
+	width: 1920px;
+	height: 1078px;
+	line-height: 20px;
+	background-color: rgba(0, 0, 0, 0.82);
+	text-align: center;
+	border: 1px solid rgba(187, 187, 187, 1);
+	position:relative;
+	z-index: 9999;
+}
+
+.preview .img, .preview .article{
+	width: 800px;
+	height: 800px;
+	position: absolute;
+	left: 560px;
+	top: 50px;
+	background-color: white;
+	overflow: auto;
+	line-height: 800px;
+}
+.preview .article{
+	padding: 30px;
+}
+
+.preview .article::-webkit-scrollbar, .preview .img::-webkit-scrollbar{
+  width: 8px;
+  background-color: rgba(0,0,0,0);
+} /* 这是针对缺省样式 (必须的) */
+
+.preview .article::-webkit-scrollbar-track, .preview .img::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.8);
+} /* 滚动条的滑轨背景颜色 */
+
+.preview .article::-webkit-scrollbar-thumb, .preview .img::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,.3);
+  background-color: #999;
+} /* 滑块颜色 */
+
+/*::-webkit-scrollbar-button {
+	  background-color: #7c2929;
+} *//* 滑轨两头的监听按钮颜色 */
+
+/*::-webkit-scrollbar-corner {
+	  background-color: black;
+}*/ /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+
+
+
+
+
+.preview .article p{
+	color: #101010;
+	text-align: left;
+	word-break: normal;
+	white-space: pre-line;
+	word-wrap: break-word;
+	line-height: 20px;
+}
+
+.preview .article h1{
+	margin: 0px;
+	text-align: left;
+	font-size: 28px;
+	color: #101010;
+}
+
+.preview .article h2{
+	margin-bottom: 0px;
+	text-align: left;
+	font-size: 20px;
+	color: #101010;
+}
+
+.preview .glyphicon-remove{
+	width: 43px;
+	height: 43px;
+	position: absolute;
+	right: 130px;
+	top: 30px;
+	font-size: 43px;
+	color: #fff;
+}
+
+.preview .glyphicon-chevron-left{
+	width: 138px;
+	height: 138px;
+	position: absolute;
+	left: 61px;
+	top: 471px;
+	line-height: 138px;
+	font-size: 70px;
+	color: #fff;
+}
+
+.preview .glyphicon-chevron-right{
+	width: 138px;
+	height: 138px;
+	position: absolute;
+	right: 61px;
+	top: 471px;
+	line-height: 138px;
+	font-size: 70px;
+	color: #fff;
+}
+
+p.img_number{
+	width: 150px;
+	height: 31px;
+	position: absolute;
+	left: 885px;
+	top: 865px;
+	
+}
+p.img_number span, p.img_number a{
+	color: #fff;
+	font-size: 20px;
+	text-align: left;
+}
+p.img_discription{
+	width: 1000px;
+	height: 110px;
+	position: absolute;
+	left: 460px;
+	top: 903px;
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	text-align: left;
+}
+
+.imgContainer{
+	cursor: pointer;	
+}

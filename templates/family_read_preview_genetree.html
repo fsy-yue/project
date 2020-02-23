@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/upload_img.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/preview.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/zTreeStyle.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.ztree.all.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/gene_ztree_read.js' %}"></script>
+    <title>王氏家谱-世系表查看</title>
+	<style type="text/css">
+		.ztree li span.button.edit{
+			background: url("/static/images/person_info.png");
+			background-size: 100%;
+		}
+		.main_con .img_top h4{
+			width: 100%;
+			text-align: center;
+			margin: 40px 0 10px;
+		}
+
+	</style>
+</head>
+<body>
+{% csrf_token %}
+
+	<div class="top_con">
+		<div class="top_nav">
+			<a href="{% url 'family:index' %}" class="logo">
+				<img src="/static/images/nav_logo.png" alt="导航logo" style="width: 300px; height: 55px;">
+			</a>
+			<a href="{% url 'family:center' %}" class="family current">家谱中心</a>
+			<a href="{% url 'culture:center' %}" class="culture">文化中心</a>
+			<div class="tourist" style="display: none;">
+				<ul>
+					<li><a href="{% url 'user:login' %}">登录</a></li>
+					<li><a href="{% url 'user:register' %}">注册</a></li>
+				</ul>
+			</div>
+			<div class="user">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0 %}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+		</div>
+
+		<div class="breadcrumb return">
+			<a href="{% url 'family:index' %}"> 王氏家谱查询与管理系统 </a>
+			<span>></span>
+			<a href="{% url 'family:center' %}"> 家谱中心 </a>
+			<span>></span>
+			<a class="return_cata" bookid="{{book.id}}"> {{book.name}} </a>
+			<span>></span>
+			<a href="#"> {{ztree.name}} </a>
+		</div>
+	</div>
+
+	<div class="con" style="margin-top: 130px;">
+		<div class="hidden" style="display: none;">{{ztree_id}}</div>
+		<div class="main_con">
+			<div class="img_top" style="text-align: center;width: 100%; position: relative">
+				<h4>{{ztree.name}}</h4>
+				<div class="search" nodeid="{% if node_id %}{{node_id}}{% endif %}" rankid="{% if node_rank %}{{node_rank}}{% endif %}">
+					<input type="text" placeholder="搜索人物" class="search_input">
+					<span class="search_icon"></span>
+					<div class="dialog" id="dialog">
+						<div class="return_pop search_result">
+							<div class="title">
+								<h1>搜索结果</h1>
+								<span class="close glyphicon glyphicon-remove"></span>
+							</div>
+							<ul class="persons">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="img_box" style="border: 1px solid #101010; margin: 100px auto;">
+				<ul class="tree_title">
+					<li><span>第1世</span></li>
+					<li><span>第2世</span></li>
+					<li><span>第3世</span></li>
+					<li><span>第4世</span></li>
+					<li><span>第5世</span></li>
+					<li><span>第6世</span></li>
+					<li><span>第7世</span></li>
+					<li><span>第8世</span></li>
+					<li><span>第9世</span></li>
+					<li><span>第10世</span></li>
+					<li><span>第11世</span></li>
+					<li><span>第12世</span></li>
+					<li><span>第13世</span></li>
+					<li><span>第14世</span></li>
+					<li><span>第15世</span></li>
+					<li><span>第16世</span></li>
+					<li><span>第17世</span></li>
+					<li><span>第18世</span></li>
+					<li><span>第19世</span></li>
+					<li><span>第20世</span></li>
+					<li><span>第21世</span></li>
+					<li><span>第22世</span></li>
+					<li><span>第23世</span></li>
+					<li><span>第24世</span></li>
+					<li><span>第25世</span></li>
+					<li><span>第26世</span></li>
+					<li><span>第27世</span></li>
+					<li><span>第28世</span></li>
+					<li><span>第29世</span></li>
+					<li><span>第30世</span></li>
+					<li><span>第31世</span></li>
+					<li><span>第32世</span></li>
+					<li><span>第33世</span></li>
+					<li><span>第34世</span></li>
+					<li><span>第35世</span></li>
+					<li><span>第36世</span></li>
+					<li><span>第37世</span></li>
+					<li><span>第38世</span></li>
+					<li><span>第39世</span></li>
+					<li><span>第40世</span></li>
+					<li><span>第41世</span></li>
+					<li><span>第42世</span></li>
+					<li><span>第43世</span></li>
+					<li><span>第44世</span></li>
+					<li><span>第45世</span></li>
+					<li><span>第46世</span></li>
+					<li><span>第47世</span></li>
+					<li><span>第48世</span></li>
+					<li><span>第49世</span></li>
+					<li><span>第50世</span></li>
+					<li><span>第51世</span></li>
+					<li><span>第52世</span></li>
+					<li><span>第53世</span></li>
+					<li><span>第54世</span></li>
+					<li><span>第55世</span></li>
+					<li><span>第56世</span></li>
+					<li><span>第57世</span></li>
+					<li><span>第58世</span></li>
+					<li><span>第59世</span></li>
+					<li><span>第60世</span></li>
+					<li><span>第61世</span></li>
+					<li><span>第62世</span></li>
+					<li><span>第63世</span></li>
+					<li><span>第64世</span></li>
+					<li><span>第65世</span></li>
+					<li><span>第66世</span></li>
+					<li><span>第67世</span></li>
+					<li><span>第68世</span></li>
+					<li><span>第69世</span></li>
+					<li><span>第70世</span></li>
+					<li><span>第71世</span></li>
+					<li><span>第72世</span></li>
+					<li><span>第73世</span></li>
+					<li><span>第74世</span></li>
+					<li><span>第75世</span></li>
+					<li><span>第76世</span></li>
+					<li><span>第77世</span></li>
+					<li><span>第78世</span></li>
+					<li><span>第79世</span></li>
+					<li><span>第80世</span></li>
+					<li><span>第81世</span></li>
+					<li><span>第82世</span></li>
+					<li><span>第83世</span></li>
+					<li><span>第84世</span></li>
+					<li><span>第85世</span></li>
+					<li><span>第86世</span></li>
+					<li><span>第87世</span></li>
+					<li><span>第88世</span></li>
+					<li><span>第89世</span></li>
+					<li><span>第90世</span></li>
+					<li><span>第91世</span></li>
+					<li><span>第92世</span></li>
+					<li><span>第93世</span></li>
+					<li><span>第94世</span></li>
+					<li><span>第95世</span></li>
+					<li><span>第96世</span></li>
+					<li><span>第97世</span></li>
+					<li><span>第98世</span></li>
+					<li><span>第99世</span></li>
+					<li><span>第100世</span></li>
+				</ul>
+				<div>
+					<button class="btn btn-default add_root_person" style="float:left; background-color: #5677FC; color: #fff;display: none;">暂无人物</button>
+					<ul id="treeDemo" class="ztree" style="display: none;"></ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="footer">
+		{% if imgdb_page_prev %}
+			{% for imgdb in imgdb_page_prev %}
+				<a href="{% url 'file:show_ztree' imgdb.id %}" class="prev">上一篇：{{imgdb.name}}</a>
+			{% endfor %}
+		{% else %}
+		<span class="prev">上一篇：无</span>
+		{% endif %}
+		<span class="return_cata" bookid="{{book.id}}">返回目录</span>
+		{% if imgdb_page_next %}
+			{% for imgdb in imgdb_page_next %}
+				<a href="{% url 'file:show_ztree' imgdb.id %}" class="next">下一篇：{{imgdb.name}}</a>
+			{% endfor %}
+		{% else %}
+		<span class="next">下一篇：无</span>
+		{% endif %}
+	</div>
+
+	<div id="new-node-layer" class="new-node-layer" style="display: none;">
+		<h1>查看人物</h1>
+		<div class="person_info">
+			<p>
+				<span>姓<input type="text" name="lastname" class="lastname" id="lastname" placeholder="王" value="" readonly></span>
+				<span>名<input type="text" name="firstname" class="firstname"  id="firstname" placeholder="名" value="" readonly></span>
+				<span>字<input type="text" name="othername" class="othername" id="othername" placeholder="字"  value=""  readonly></span>
+			</p>
+			<p>
+				排行 <span class="seniority" id="seniority" style="display: inline-block; line-height: 30px; color: #888;"></span>
+
+				<span id="sex" class="sex">
+					<span class='sex_input_con'>
+						<input type="radio" name="sex" class="man" readonly>
+						<input type="radio" name="sex" class="woman" readonly>
+					</span>
+					<span class="sex_char_con">
+						<span class="man" id="man">男</span>
+						<span class="woman" id="woman">女</span>
+					</span>
+				</span>
+			</p>
+
+			<p>
+				配偶<input type="text" name="spouse" id="spouse" placeholder="配偶" value="" readonly>
+			</p>
+			<p>
+				出生日期 <input type="text" name="birthday" id="birthday"  class="birthday" value="" readonly>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				卒世日期 <input type="text" name="deathday" id="deathday" class="deathday" value="" readonly>
+			</p>
+			<p>
+				<span>生平简介</span> <textarea name="desc" id="desc" readonly>张无忌，金庸武侠小说《倚天屠龙记》第一男主角，中土明教第三十四代教主。武当七侠之一张翠山与天鹰教紫微堂主殷素素之子，明教四大护教法王之一金毛狮王谢逊义子。出生起在冰火岛过着原始生活，踏足中土后即幼失怙恃，中玄冥神掌寒毒命危，后在蝴蝶谷带病习医，义送孤儿至西域，在昆仑仙谷绝处逢生。忍受寒毒煎熬七年，福缘际会，融合九阳神功、乾坤大挪移、太极拳（及太极剑）和圣火令神功四大盖世武功为一体，当世无敌。此外还精研医术和毒术，术绝尘寰。为人仁侠仗义，一生救人无数，常制服敌人而不杀害。实力悬殊，曾一人决战数个至数十个顶尖高手。20岁决战光明顶，孤身大战武当、少林、峨嵋、昆仑、崆峒、华山六大门派高手，一战成名于天下。弱冠之年担任明教教主，使百万教众倾心归附，统一明教。率领明教光明左右使、护教法王、五散人、五行旗及百万教众，救张三丰、救谢逊、闯金刚伏魔圈，号令群雄抵抗元军。张无忌对六大派以德报怨，与明教下属兄弟般的感情，与张三丰师祖孙的孺慕之情、与谢逊的亲情挚爱，展示了各种男子间的情义故事。先后邂逅了赵敏、周芷若、殷离、小昭等红颜，发展出一段段欲断难断的爱情故事。最终，张无忌22岁时把称帝机会让给属下朱元璋，携赵敏退隐江湖</textarea>
+			</p>
+		</div>
+		<hr style="border: 1px solid #ccc;">
+		<div class="buttons">
+			<button type="button" class="btn btn-default reset" onclick="hideForm()" style="background-color: #5677fc; border: 1px solid #5677fc; color: white;">关闭</button>
+		</div>
+	</div>
+</body>
+</html>

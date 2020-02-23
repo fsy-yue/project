@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>王氏家谱-文化中心文章阅读</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'css/upload_img.css' %}">-->
+	<link rel="stylesheet" type="text/css" href="/static/css/upload_img.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/culture_read.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{%static 'js/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+  	<script>
+	  	tinymce.init({
+	  		language: "zh_CN",
+	  		selector:'.article_con',
+			// height: 1000,
+			toolbar: false,
+			menubar: false,
+			readonly: 1,
+			inline: true
+	  	});
+  	</script>
+</head>
+<body>
+
+	<div class="top_con">
+		<div class="top_nav">
+			<a href="{% url 'family:index' %}" class="logo">
+				<img src="/static/images/nav_logo.png" alt="导航logo" style="width: 300px; height: 55px;">
+			</a>
+			<a href="{% url 'family:center' %}" class="family">家谱中心</a>
+			<a href="{% url 'culture:center' %}" class="culture current">文化中心</a>
+			{% if user.is_authenticated %}
+			<div class="user">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0 %}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+			{% else %}
+			<div class="tourist" style="float: right;margin-right:80px; ">
+				<ul>
+					<li style="float: left; margin:14px 10px;"><a href="{% url 'user:login' %}">登录</a></li>
+					<li style="float: left;margin:14px 10px;"><a href="{% url 'user:register' %}">注册</a></li>
+				</ul>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="breadcrumb return">
+		<a href="{% url 'family:index' %}"> 王氏家谱查询与管理系统 </a>
+		<span>></span>
+		<a href="{% url 'culture:center' %}"> 文化中心 </a>
+		<span>></span>
+		<a href="{% url 'culture:read' article.id %}"> {{article.title}} </a>
+	</div>
+
+	<div class="body">
+		<div class="article" style="min-height: 800px;">
+			<h1>{{ article.title }}</h1>
+			<h2>
+				<span class="author">作者：{{ article.author}}</span>
+				<span class="time">{{ article.create_time}}</span>
+			</h2>
+			<p class="article_tip">
+				导读：{{ article.introduce }}
+			</p>
+			<div class="article_con">
+				{{ article.content|safe }}
+			</div>
+			<p style="margin-top: 30px;">未经许可，禁止转载。</p>
+		</div>
+
+		<div class="right_article">
+			<h1>热门文章</h1>
+			<ul class="hot_article">
+				{% for hotarticle in hotarticles %}
+					<li>
+						<a href="{% url 'culture:read' hotarticle.id %}">
+							<img src="{{ hotarticle.img.url }}" alt="{{ hotarticle.title }}">
+							<h2>{{ hotarticle.title }}</h2>
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="footer" style="clear: both; margin: 30px 0 0 0; width: 830px; background-color:#f2f2f2; border: 0px;">
+			{% if imgdb_page_prev %}
+				{% for imgdb in imgdb_page_prev %}
+					<a href="{% url 'culture:read' imgdb.id %}" class="prev">上一篇：{{imgdb.title}}</a>
+				{% endfor %}
+			{% else %}
+			<span class="prev">上一篇：无</span>
+			{% endif %}
+			{% if imgdb_page_next %}
+				{% for imgdb in imgdb_page_next %}
+					<a href="{% url 'culture:read' imgdb.id %}" class="next">下一篇：{{imgdb.title}}</a>
+				{% endfor %}
+			{% else %}
+			<span class="next">下一篇：无</span>
+			{% endif %}
+		</div>
+	</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>王氏家谱-找回密码</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main(1).css">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/forget_pwd.js"></script>
+</head>
+<body>
+	<div class="register_con" style="margin-top: 160px;">
+		<div class="logo">
+			<img src="/static/images/login_logo.png" alt="注册登录logo">
+		</div>
+
+		<div class="r_con">
+			<div class="reg_form clearfix">
+				<form method="post" id="reg_form">
+					{% csrf_token %}
+					<ul>
+						<li>
+							<div class="input-group">
+							  	<span class="input-group-addon" id="basic-addon1">
+							  		<span href="#" class="glyphicon glyphicon-envelope" ></span>
+							  	</span>
+							 	<input type="text" name="email" id="email" class="form-control" placeholder="邮箱账号" value="{% if email %} {{email}}{% endif %}" aria-describedby="basic-addon1">
+							</div>
+							<span class="error_tip">提示信息</span>
+						</li>
+						<li class="reg_sub">
+							<div class="input-group">
+								<input type="submit" value="发送重置密码链接" name="">
+							</div>
+							<p style="color:#101010;font-size: 12px; text-align: center; margin-top: 15px;">
+								请输入您绑定的邮箱地址，我们会将重置密码所需的信息发送给您
+							</p>
+							<p style="font-size: 12px; color:#e51c23; text-align: center; margin-top: 15px;">
+								{{errmsg}}
+							</p>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>王氏家谱-家谱详情页</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/upload_img.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/family_center.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/catalogue.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/paging.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/catalogue.js' %}"></script>
+</head>
+<body>
+	
+	<div class="top_con">
+		<div class="top_nav">
+			<a href="{% url 'family:index' %}" class="logo">
+				<img src="/static/images/nav_logo.png" alt="导航logo" style="width: 300px; height: 55px;">
+			</a>
+			<a href="{% url 'family:center' %}" class="family current">家谱中心</a>
+			<a href="{% url 'culture:center' %}" class="culture">文化中心</a>
+			<div class="user">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0 %}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="breadcrumb return">
+		<a href="{% url 'family:index' %}"> 王氏家谱查询与管理系统 </a>
+		<span>></span>
+		<a href="{% url 'family:center' %}"> 家谱中心 </a>
+		<span>></span>
+		<a href="#"> 阅读家谱 </a>
+	</div>
+
+	<div class="description">
+		<div class="book">
+			<img src="{% if book.img %} {{ book.img.url }} {% else %} {% static 'images/book.png' %} {% endif %}" alt="家谱封面">
+		</div>
+		<div class="info">
+			<h1>{{book.name}}</h1>
+			<p class="author">编撰者：{{book.author}}</p>
+			<p class="desc">{{book.desc}}</p>
+			<p class="address">地&nbsp;&nbsp;区：{{book.addr}}<span class="create_time">{{book.create_time}}</span></p>
+		</div>
+	</div>
+	
+	<div class="catalogue_main">
+		<div class="catalogue_title">
+			<h1>家谱目录</h1>
+			<ul class="catalogue_con catalogue_read_con" style="width:811px;">
+				<li class="img li_1" type="img">
+					<span class="back"></span>
+					<span class="title">图像</span>
+					<span class="{% if book %} drop_up {% else %}  drop_down {% endif %}"></span>
+				</li>
+				<div class="div_1">
+					{% if book %}
+						{% if book.imgdb_title %}
+							{% for imgdb in book.imgdb_title %}
+								<ul class="title_level title_level_1">
+									<li type="img">
+										<a href="{% url 'file:show_img' imgdb.id %}" bookid="{{imgdb.id}}">
+											<span class="article_title" >{{imgdb.name}}</span>
+										</a>
+									</li>
+								</ul>
+							{% endfor %}
+						{% endif %}
+						{% if book.img_cata %}
+							{% for catalogue in book.img_cata %}
+								<ul class="cata_level">
+									<li type="img">
+										<span class="cata_drop_up" asyncid="1"></span>
+										<span class="cata_title" bookid="{{catalogue.id}}">{{catalogue.name}}</span>
+									</li>
+									<div class="div_2"></div>
+								</ul>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				</div>
+
+				<li class="article li_1" type="article">
+					<span class="back"></span>
+					<span class="title">谱文</span>
+					<span class="{% if book %} drop_up {% else %}  drop_down {% endif %}"></span>
+				</li>
+				<div class="div_1">
+					{% if book %}
+						{% if book.article_title %}
+							{% for article in book.article_title %}
+								<ul class="title_level title_level_1">
+									<li type="article">
+										<a href="{% url 'file:show_file' article.id %}" bookid="{{article.id}}">
+											<span class="article_title" >{{article.name}}</span>
+										</a>
+									</li>
+								</ul>
+							{% endfor %}
+						{% endif %}
+						{% if book.article_cata %}
+							{% for catalogue in book.article_cata %}
+								<ul class="cata_level">
+									<li type="article">
+										<span class="cata_drop_up" asyncid="1"></span>
+										<span class="cata_title" bookid="{{catalogue.id}}">{{catalogue.name}}</span>
+									</li>
+									<div class="div_2"></div>
+								</ul>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				</div>
+
+				<li class="pedigree li_1" type="ztree">
+					<span class="back"></span>
+					<span class="title">世系</span>
+					<span class="{% if book %} drop_up {% else %}  drop_down {% endif %}"></span>
+				</li>
+				<div class="div_1">
+					{% if book %}
+						{% if book.ztree_title %}
+							{% for ztree in book.ztree_title %}
+								<ul class="title_level title_level_1">
+									<li type="ztree">
+										<a href="{% url 'file:show_ztree' ztree.id%}" bookid="{{ztree.id}}">
+											<span class="article_title" >{{ztree.name}}</span>
+										</a>
+									</li>
+								</ul>
+							{% endfor %}
+						{% endif %}
+						{% if book.ztree_cata %}
+							{% for catalogue in book.ztree_cata %}
+								<ul class="cata_level">
+									<li type="ztree" async="ztree">
+										<span class="cata_drop_up" asyncid="1"></span>
+										<span class="cata_title" bookid="{{catalogue.id}}">{{catalogue.name}}</span>
+									</li>
+									<div class="div_2"></div>
+								</ul>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				</div>
+
+			</ul>
+		</div>
+		<div class="right">
+			<div class="author_img">
+				<img src="{% static 'images/a.png' %}" alt="默认" />
+			</div>
+			<h1>{{book.author}}</h1>
+			<hr>
+			<p>族之有谱，好比国之有史。家谱文化的推广者。</p>
+		</div>
+	</div>
+
+</body>
+</html>

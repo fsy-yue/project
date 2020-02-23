@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<title>王氏家谱-首页</title>
+	<style>
+		.tourist{
+			float: right;
+			margin:26px 80px 0 0;
+		}
+		.tourist li{
+			float: left;
+			margin:14px 15px;
+		}
+		.tourist li a{
+			color: white;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="head">
+		<div class="head_con">
+			{% if user.is_authenticated %}
+			<div class="user" style="float: right; margin: 45px 50px 0 0;">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{user.username}}</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">toggle down</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'family:create' 0%}">创建家谱</a></li>
+						<li><a href="{% url 'user:user_center_gene' %}">我的家谱</a></li>
+						<li><a href="{% url 'user:user_center_info' %}">我的信息</a></li>
+						<li><a href="{% url 'user:logout' %}">退出登录</a></li>
+					</ul>
+	    		</div>
+			</div>
+			{% else %}
+			<div class="tourist">
+				<ul>
+					<li ><a href="{% url 'user:login' %}">登录</a></li>
+					<li ><a href="{% url 'user:register' %}">注册</a></li>
+				</ul>
+			</div>
+			{% endif %}
+
+			<div class="main_nav">
+				<div class="logo">
+					<img src="{% static 'images/logo.png' %}" alt="王氏家谱logo">
+				</div>
+				<ul class="sub_nav">
+					<li><a href="{%url 'family:center'%}" class="family">家谱中心</a></li>
+					<li><a href="{%url 'culture:center'%}" class="culture">文化中心</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="body">
+        <div class="search" style="z-index: 20;">
+			<span class="dropdown">
+				<a id="drop2" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+				    搜索类型
+				 	<span class="caret"></span>
+				</a>
+			    <ul class="dropdown-menu" aria-labelledby="drop2">
+			        <li><a href="#" name="book">谱书</a></li>
+			        <li><a href="#" name="img">谱书图像</a></li>
+			        <li><a href="#" name="article">谱文</a></li>
+			        <li><a href="#" name="person">世系人物</a></li>
+			        <li><a href="#" name="culture_article">宣传文章</a></li>
+			    </ul>
+		    </span>
+
+		    <span class="search_input_con">
+				<form action="/search/" method="get" id="search_form">
+					<input type="text" name="q" class="search_input" placeholder="请根据左侧分类进行搜索">
+					<span class="search_img">
+						<input type="submit" style="opacity: 0; height: 100%; weight: 100%;">
+					</span>
+				</form>
+		    </span>
+		</div>
+		<div class="gene_recommend">
+			<h1>家谱推荐<a href="{%url 'family:center'%}">更多 ></a></h1>
+			<ul>
+				{% for book in books %}
+					<!--<li><a href="{%url 'family:center'%}"><img src="{% if book.img %} {{ book.img.url }} {% endif %}" alt="王氏谱书封面"></a></li>-->
+					<li><a  href="{% url 'family:read' book.id %}"><img src="{% if book.img %} {{ book.img.url }} {% endif %}" alt="王氏谱书封面"></a></li>
+				{% endfor %}
+
+			</ul>
+		</div>
+		<div class="giant_article">
+			<h1>{{name_first}}<a href="{%url 'culture:center'%}">更多 ></a></h1>
+			<ul>
+				{% for article in articles_first %}
+				<li>
+					<a href="{% url 'culture:read' article.id %}">
+						<img src="{{ article.img.url }}" alt="{{ article.title }}">
+						<h2>{{ article.title }}</h2>
+						<p>{{ article.introduce }}</p>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="celebrity_info">
+			<h1>{{name_second}}<a href="{%url 'culture:center'%}">更多 ></a></h1>
+			<ul>
+				{% for article in articles_second %}
+				<li>
+					<a href="{% url 'culture:read' article.id %}">
+						{{ article.title}}
+						<!--<span>四大美女之一</span>-->
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="gene_knowledge">
+			<h1>{{name_third}}<a href="{%url 'culture:center'%}">更多 ></a></h1>
+			<ul>
+				{% for article in articles_third %}
+				<li>
+					<a href="{% url 'culture:read' article.id %}">
+						<img src="{{ article.img.url }}" alt="{{ article.title }}">
+						<h2>{{ article.title }}</h2>
+						<p>{{ article.introduce }}</p>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+    <script type="text/javascript">
+		$(function(){
+			$('.search .dropdown-menu li a').click(function(){
+				var text = $(this).text()+'<span class="caret"></span>';
+				$('.search .dropdown-toggle').html(text);
+				var action = $('form').prop('action') + $(this).prop('name');
+				$('form').prop('action', action);
+			})
+			$('#search_form').submit(function () {
+				var action = $('form').prop('action');
+				// alert(action);
+				if (action == 'http://120.78.188.2:8000/search/'){
+					alert("请先选择搜索类型");
+					return false;
+				} else {
+					var search_key = $('.search_input').val();
+					if(search_key == ''){
+						alert("请输入搜索关键字");
+						return false;
+					}
+					return true;
+				}
+			})
+		})
+	</script>
+</body>
+</html>
